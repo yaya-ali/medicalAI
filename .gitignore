@@ -36,3 +36,4 @@ test_h2ogpt.py
 #local dev stuff
 todo
 p10
+.venv

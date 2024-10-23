@@ -50,6 +50,6 @@ async def custom_http_exception_handler(_, exc):
 
 
 app.include_router(auth_router, prefix=settings.API_VERSION_PREFIX)
-app.include_router(medpub_doaj_router, prefix=settings.API_VERSION_PREFIX)
+# app.include_router(medpub_doaj_router, prefix=settings.API_VERSION_PREFIX)
 app.include_router(db_router, prefix=settings.API_VERSION_PREFIX)
 app.include_router(h2ogpt_router, prefix=settings.API_VERSION_PREFIX)

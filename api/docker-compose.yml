@@ -10,6 +10,8 @@ services:
       - .env
     networks:
       - gennet_ai_network
+    ports:
+      - "27017:27017"
     volumes:
       - mongodb_data:/data/db
 
@@ -28,21 +30,6 @@ services:
     networks:
       - gennet_ai_network
 
-  api-v1:
-    restart: always
-    container_name: api-v1
-    image: ${AWS_ECR_REPO}
-    depends_on:
-      - authdb
-      - mongodb
-    volumes:
-      - h2ogpt_data:${H2OGPT_RES_DIR}
-      - static:${STATIC_FILES}
-    env_file:
-      - .env.v1
-    networks:
-      - gennet_ai_network
-
   api-v2:
     restart: always
     container_name: api-v2
@@ -55,38 +42,19 @@ services:
     volumes:
       - h2ogpt_data:${H2OGPT_RES_DIR}
       - static:${STATIC_FILES}
+      - ./:/app
     env_file:
       - .env
     networks:
       - gennet_ai_network
+    ports:
+      - "8000:8000"
     entrypoint: ["/bin/sh", "-c"]
     command:
       [
-        "python /app/auth/src/backend_pre_start.py; cd /app/auth && alembic upgrade head; cd /app && gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0 --workers 1 --timeout 1200",
+        "python /app/auth/src/backend_pre_start.py; cd /app/auth && alembic upgrade head; cd /app && uvicorn main:app --host 0.0.0.0 --reload"
       ]
 
-  frontend:
-    restart: always
-    container_name: frontend
-    image: gennet-ui:latest
-    networks:
-      - gennet_ai_network
-
-  caddy:
-    restart: always
-    container_name: caddy
-    image: caddy:latest
-    ports:
-      - "80:80"
-      - "443:443"
-    depends_on:
-      - api-v1
-      - api-v2
-      - frontend
-    volumes:
-      - ./deployment/caddy/Caddyfile:/etc/caddy/Caddyfile
-    networks:
-      - gennet_ai_network
 
 
 networks:

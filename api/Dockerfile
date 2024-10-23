@@ -87,19 +87,23 @@ RUN --mount=type=cache,target=/root/.cache \
 # will become mountpoint of our code
 WORKDIR /app
 
+ENV PYTHONPATH="${PYTHONPATH}:/app/db"
+ENV PYTHONPATH="${PYTHONPATH}:/app/auth"
+ENV PYTHONPATH="${PYTHONPATH}:/app/h2ogpt"
+ENV PYTHONPATH="${PYTHONPATH}:/app/medpub"
 
 ################################
 # PRODUCTION
 # Final image used for runtime
 ################################
-FROM python-base as production
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-    # deps for installing poetry
-    curl
-
-ENV FASTAPI_ENV=production
-COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
-COPY . /app
-COPY pyproject.toml /app/pyproject.toml
-WORKDIR /app
+# FROM python-base as production
+# RUN apt-get update \
+#     && apt-get install --no-install-recommends -y \
+#     # deps for installing poetry
+#     curl
+# 
+# ENV FASTAPI_ENV=production
+# COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
+# # COPY . /app
+# # COPY pyproject.toml /app/pyproject.toml
+# WORKDIR /app
