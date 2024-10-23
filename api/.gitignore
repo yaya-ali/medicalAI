@@ -1,0 +1,25 @@
+
+#fles for testing
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ico
+*.woff
+*.woff2
+
+binary
+gradio_utils
+h2ogpt_user
+*.debug.*
+*_report.md
+*.json
+.vscode/
+.pytest*
+vosk
+*.override.*
+*.lock
+*.ruff*
+*.mypy*
+.coverage

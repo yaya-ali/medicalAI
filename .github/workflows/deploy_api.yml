@@ -1,0 +1,30 @@
+name: 'Build, Test and Deploy API to ECR'
+'on':
+  push:
+    branches:
+      - master
+    paths:
+      - api/**
+      - .github/workflows/deploy_api.yml
+  pull_request:
+    branches:
+      - master
+    paths:
+      - api/**
+      - .github/workflows/deploy_api.yml
+  workflow_dispatch: null
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: 'Build, tag, and push image to Amazon ECR'
+        working-directory: ./api
+        env:
+          ECR_REGISTRY: '${{ steps.login-ecr.outputs.registry }}'
+          ECR_REPOSITORY: medical-gpt-api
+          IMAGE_TAG: latest
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .

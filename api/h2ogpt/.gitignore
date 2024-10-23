@@ -1,0 +1,8 @@
+.vscode
+.copier
+.env
+*.lock
+*.override.*
+*-dev*
+
+__pycache__

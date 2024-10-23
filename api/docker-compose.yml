@@ -1,0 +1,100 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    env_file:
+      - .env
+    networks:
+      - gennet_ai_network
+    volumes:
+      - mongodb_data:/data/db
+
+  authdb:
+    restart: always
+    image: postgres:latest
+    container_name: authdb
+    volumes:
+      - authdb:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    networks:
+      - gennet_ai_network
+
+  api-v1:
+    restart: always
+    container_name: api-v1
+    image: ${AWS_ECR_REPO}
+    depends_on:
+      - authdb
+      - mongodb
+    volumes:
+      - h2ogpt_data:${H2OGPT_RES_DIR}
+      - static:${STATIC_FILES}
+    env_file:
+      - .env.v1
+    networks:
+      - gennet_ai_network
+
+  api-v2:
+    restart: always
+    container_name: api-v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - authdb
+      - mongodb
+    volumes:
+      - h2ogpt_data:${H2OGPT_RES_DIR}
+      - static:${STATIC_FILES}
+    env_file:
+      - .env
+    networks:
+      - gennet_ai_network
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      [
+        "python /app/auth/src/backend_pre_start.py; cd /app/auth && alembic upgrade head; cd /app && gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0 --workers 1 --timeout 1200",
+      ]
+
+  frontend:
+    restart: always
+    container_name: frontend
+    image: gennet-ui:latest
+    networks:
+      - gennet_ai_network
+
+  caddy:
+    restart: always
+    container_name: caddy
+    image: caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - api-v1
+      - api-v2
+      - frontend
+    volumes:
+      - ./deployment/caddy/Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      - gennet_ai_network
+
+
+networks:
+  gennet_ai_network:
+    driver: bridge
+
+volumes:
+  static:
+  authdb:
+  mongodb_data:
+  h2ogpt_data:

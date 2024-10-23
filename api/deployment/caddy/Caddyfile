@@ -1,0 +1,38 @@
+# Global logger
+(logger) {
+        log {
+                hostnames {args[0]}
+
+                output file /var/log/caddy/gennet_ai_{args[0]}.log {
+                        roll_size 500mb
+                        roll_keep 3
+                        roll_keep_for 720h
+                }
+        }
+}
+
+# incase letsencrypt failed
+{
+    acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+}
+
+
+# edit /etc/hosts set apps.gennet.ai to PUBLIC_IP
+:80 {
+    encode zstd gzip
+
+    import logger v1
+    handle /api/v1* {
+        reverse_proxy api-v1:8000
+    }
+
+    import logger v2
+    handle /api/v2* {
+        reverse_proxy api-v2:8000
+    }
+
+    import logger frontend
+    handle {
+        reverse_proxy frontend:5600
+    }
+}
