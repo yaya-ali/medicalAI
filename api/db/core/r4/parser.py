@@ -72,6 +72,8 @@ def init():
     # get all .json files in current dir
     file = [f for f in os.listdir() if f.endswith(".json")]
 
+    assert file, "No .json files found in current directory"
+
     for f in file:
         patientId = f.split("_")[-1].split(".")[0]
         with open(f, "r") as Iof:

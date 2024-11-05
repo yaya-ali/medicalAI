@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "apps.gennet.ai"
-description = "Gennet AI Backend API with FastAPI"
-version = "0.2.0"
+name = "medicalAI"
+description = "API for medical AI"
+version = "0.1.0"
 authors = ["Abubakar Abubakar Yusif <abubakaryusuf951@gmail.com>"]
 
 [tool.poetry.dependencies]
