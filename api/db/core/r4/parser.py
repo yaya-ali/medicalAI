@@ -92,3 +92,8 @@ def init():
 
 def drop_all():
     SyntheaParser({}, "").drop_all(collections)
+
+
+if __name__ == "__main__":
+    # this will very much parse everything in one go
+    init()
