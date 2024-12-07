@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <!-- page loader -->
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+            <!-- page header -->
+            <%= require('../partials/header/clinic-header.html').default %>
+
+                <!-- page wrapper -->
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb  -->
+                            <div class="container-fluid mt-3">
+                                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                    <div class="row gx-3 align-items-center">
+                                        <div class="col-12 col-sm mb-2 mb-sm-0">
+                                            <p class="h5">Schedule</p>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb mb-0">
+                                                    <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                                                    <li class="breadcrumb-item active bi" aria-current="page">Schedule</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-auto py-1">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <a href="clinic-schedule.html" class="btn btn-link active">
+                                                    <i data-feather="calendar" class="me-0 me-md-1"></i>
+                                                    <span class="d-none d-xl-inline-block">Calendar</span>
+                                                </a>
+                                                <a href="clinic-schedule-grid.html" class="btn btn-link">
+                                                    <i data-feather="table" class="me-0 me-md-1"></i>
+                                                    <span class="d-none d-xl-inline-block">Grid</span>
+                                                </a>
+                                                <a href="clinic-schedule-cards.html" class="btn btn-link">
+                                                    <i data-feather="layers" class="me-0 me-md-1"></i>
+                                                    <span class="d-none d-xl-inline-block">Cards</span>
+                                                </a>
+                                                <a href="clinic-schedule-staff.html" class="btn btn-link">
+                                                    <i data-feather="user-check" class="me-0 me-md-1"></i>
+                                                    <span class="d-none d-xl-inline-block">Staff</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto py-1">
+                                            <a href="clinic-add-appointment.html" class="btn btn-theme">
+                                                <i data-feather="plus" class="me-0 me-md-1"></i> <span class="d-none d-md-inline-block">Appointment</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-auto py-1 ms-auto ms-sm-0">
+                                            <button class="btn btn-link btn-square btn-icon" data-bs-toggle="collapse" data-bs-target="#filterschedule" aria-expanded="false" aria-controls="filterschedule">
+                                                <i data-feather="filter"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container" id="main-content">
+                                <!-- filter area -->
+                                <div class="collapse" id="filterschedule">
+                                    <div class="card adminuiux-card mt-4">
+                                        <div class="card-body pb-0">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="form-floating">
+                                                        <input type="text" class="form-control" placeholder="Search...">
+                                                        <label>Search...</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="form-floating">
+                                                        <select class="form-select">
+                                                            <option selected>All</option>
+                                                            <option value="1">Appointments</option>
+                                                            <option value="2">Birthday</option>
+                                                            <option value="3">Meetings</option>
+                                                        </select>
+                                                        <label>Appointment Type</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="form-floating">
+                                                        <select class="form-select">
+                                                            <option selected>All</option>
+                                                            <option value="1">Dr. Ryan Sylia</option>
+                                                            <option value="2">Dr. Alice</option>
+                                                            <option value="3">Dr. Smriti Vandana</option>
+                                                        </select>
+                                                        <label>Doctor</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="form-floating">
+                                                        <select class="form-select">
+                                                            <option selected>All</option>
+                                                            <option value="1">Created</option>
+                                                            <option value="2">Upcoming</option>
+                                                            <option value="3">Ongoing</option>
+                                                            <option value="3">Completed</option>
+                                                            <option value="3">Deleted</option>
+                                                        </select>
+                                                        <label>Appointment Status</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- full calendar view -->
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-12 col-md-12 col-xl">
+                                        <!-- Calendar Third party -->
+                                        <div class="card adminuiux-card mb-4">
+                                            <div class="card-body">
+                                                <div id="calendar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- book appointment and summary -->
+                                    <div class="col-12 col-md-12 col-xl-3 ">
+                                        <p class="h6 mb-3">Book an appointment</p>
+                                        <div class="dropdown w-100 mb-4">
+                                            <button class="btn btn-link dropdown-toggle text-start no-caret w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <span class="row align-items-center gx-3">
+                                                    <span class="col-auto">
+                                                        <span class="avatar avatar-40 rounded-circle coverimg">
+                                                            <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                        </span>
+                                                    </span>
+                                                    <span class="col">
+                                                        <span class="h6 mb-1 text-theme">Dr. Ryan Sylia</span>
+                                                        <span class="opacity-75 small">Orthopedic Specialist</span>
+                                                    </span>
+                                                    <span class="col-auto">
+                                                        <i class="bi bi-chevron-down small"></i>
+                                                    </span>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu w-100">
+                                                <li>
+                                                    <a class="dropdown-item active" href="javascript:void(0)">
+                                                        <div class="row align-items-center gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="h6 mb-1">Dr. Ryan Sylia</p>
+                                                                <p class="opacity-75 small">Orthopedic Specialist</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">
+                                                        <div class="row align-items-center gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="h6 mb-1">Dr. Alice</p>
+                                                                <p class="opacity-75 small">Skincare Specialist</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">
+                                                        <div class="row align-items-center gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                                    <img src="assets/img/modern-ai-image/user-7.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="h6 mb-1">Dr. Smriti Vandana</p>
+                                                                <p class="opacity-75 small">General Expert</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <!-- inline calendar -->
+                                            <div class="col-12 col-sm-6 col-xl-12 mb-4">
+                                                <p class="h6 mb-3">Select Date</p>
+                                                <div class="inlinewrap1 inline-calendar mx-auto"></div>
+                                                <input type="text" id="inlinewrap1" class="d-none">
+                                            </div>
+                                            <!-- appointment timings -->
+                                            <div class="col-12 col-sm-6 col-xl-12 mb-4">
+                                                <p class="h6 mb-3">Select Time</p>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1 active">
+                                                    <span>11:00 AM</span>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>11:30 AM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>12:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>12:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>1:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>1:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>2:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>2:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>3:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>3:30 PM</span></button>
+                                                <br><br>
+                                                <!-- create button -->
+                                                <button class="btn btn-theme w-100">
+                                                    <i class="bi bi-plus"></i> <span>Appointment</span>
+                                                </button>
+                                            </div>
+                                            <!-- Total patients -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-50 text-center rounded bg-success-subtle text-success-emphasis mb-3">
+                                                            <i class="bi bi-people fs-4"></i>
+                                                        </div>
+                                                        <p class="h4 mb-0">1320</p>
+                                                        <p class="text-secondary small">Patients</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Total Staff -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-50 text-center rounded bg-info-subtle text-info-emphasis mb-3">
+                                                            <i class="bi bi-person-badge fs-4"></i>
+                                                        </div>
+                                                        <p class="h4 mb-0">20</p>
+                                                        <p class="text-secondary small">Active Staff</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Total Rooms occupied -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-50 text-center rounded bg-warning-subtle text-warning-emphasis mb-3">
+                                                            <i class="bi bi-hospital fs-4"></i>
+                                                        </div>
+                                                        <p class="h4 mb-0">1320</p>
+                                                        <p class="text-secondary small">+ 75 Rooms</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Total online appointment -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-50 text-center rounded bg-danger-subtle text-danger-emphasis mb-3">
+                                                            <i class="bi bi-calendar-week fs-4"></i>
+                                                        </div>
+                                                        <p class="h4 mb-0">820</p>
+                                                        <p class="text-secondary small">Bookings</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- quick booking approval-->
+                                <div class="row mb-4">
+                                    <div class="col-12 text-center mb-4 mb-lg-5">
+                                        <h1>Booking requests awaiting for approval</h1>
+                                        <p class="mb-0">Approve upcoming booking requests quick and easy</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="swiper swiperautononav mb-3">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide width-300">
+                                                    <div class="card adminuiux-card">
+                                                        <div class="card-header">
+                                                            <div class="row gx-3 mb-2">
+                                                                <div class="col">
+                                                                    <p class="h6 mb-1">2:20 AM</p>
+                                                                    <p class="mb-0 text-secondary">9 June 2024</p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="mb-0 h6">$40.00</p>
+                                                                    <span class="badge bg-success p-1 m-1"><small>Paid</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">High fever and cough</p>
+                                                            <p class="opacity-75 small">Dr. Smriti Vandana</p>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <P class="text-theme-theme-1 small text-center mb-3">Customer Details</P>
+                                                            <div class="text-center">
+                                                                <div class="avatar avatar-60 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                                </div>
+                                                                <p class="h6 mb-1 ">
+                                                                    <span class="position-relative">Julia Williams
+                                                                        <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                                                            <span class="visually-hidden">New alerts</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </p>
+                                                                <p class="opacity-75 small mb-2">United States</p>
+                                                                <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Revisit</span>
+                                                                <span class="badge badge-light rounded-pill text-bg-theme-accent-1">VIP</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <div class="row ">
+                                                                <div class="col">
+                                                                    <button class="btn btn-theme">
+                                                                        <i data-feather="check-circle"></i> <span>Accept</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-outline-danger">
+                                                                        <i data-feather="x-circle"></i> <span>Reject</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide width-300">
+                                                    <div class="card adminuiux-card">
+                                                        <div class="card-header">
+                                                            <div class="row gx-3 mb-2">
+                                                                <div class="col">
+                                                                    <p class="h6 mb-1">5:20 AM</p>
+                                                                    <p class="mb-0 text-secondary">10 June 2024</p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="mb-0 h6">$40.00</p>
+                                                                    <span class="badge bg-success p-1 m-1"><small>Paid</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">Viral Fever</p>
+                                                            <p class="opacity-75 small">Dr. Smriti Vandana</p>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <P class="text-theme-theme-1 small text-center mb-3">Customer Details</P>
+                                                            <div class="text-center">
+                                                                <div class="avatar avatar-60 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-8.jpg" alt="">
+                                                                </div>
+                                                                <p class="h6 mb-1 ">
+                                                                    <span class="position-relative">Stephan Smith
+                                                                        <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                                                            <span class="visually-hidden">New alerts</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </p>
+                                                                <p class="opacity-75 small mb-2">United States</p>
+                                                                <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Revisit</span>
+                                                                <span class="badge badge-light rounded-pill text-bg-danger">Frequent</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <div class="row ">
+                                                                <div class="col">
+                                                                    <button class="btn btn-theme">
+                                                                        <i data-feather="check-circle"></i> <span>Accept</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-outline-danger">
+                                                                        <i data-feather="x-circle"></i> <span>Reject</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide width-300">
+                                                    <div class="card adminuiux-card">
+                                                        <div class="card-header">
+                                                            <div class="row gx-3 mb-2">
+                                                                <div class="col">
+                                                                    <p class="h6 mb-1">4:20 AM</p>
+                                                                    <p class="mb-0 text-secondary">10 June 2024</p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="mb-0 h6">$50.00</p>
+                                                                    <span class="badge bg-danger p-1 m-1"><small>Unpaid</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">Allergies</p>
+                                                            <p class="opacity-75 small">Dr. Abhijeet Singh</p>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <P class="text-theme-theme-1 small text-center mb-3">Customer Details</P>
+                                                            <div class="text-center">
+                                                                <div class="avatar avatar-60 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                                                                </div>
+                                                                <p class="h6 mb-1 ">
+                                                                    <span class="position-relative">Johnson Shreya
+                                                                        <span class="position-absolute top-50 start-100 translate-middle p-1 bg-warning rounded-circle mx-2">
+                                                                            <span class="visually-hidden">New alerts</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </p>
+                                                                <p class="opacity-75 small mb-2">New Jersey</p>
+                                                                <span class="badge badge-light rounded-pill text-bg-success">Fresh Case</span>
+                                                                <span class="badge badge-light rounded-pill text-bg-warning">Offer</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <div class="row ">
+                                                                <div class="col">
+                                                                    <button class="btn btn-theme">
+                                                                        <i data-feather="check-circle"></i> <span>Accept</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-outline-danger">
+                                                                        <i data-feather="x-circle"></i> <span>Reject</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide width-300">
+                                                    <div class="card adminuiux-card">
+                                                        <div class="card-header">
+                                                            <div class="row gx-3 mb-2">
+                                                                <div class="col">
+                                                                    <p class="h6 mb-1">2:20 AM</p>
+                                                                    <p class="mb-0 text-secondary">9 June 2024</p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="mb-0 h6">$40.00</p>
+                                                                    <span class="badge bg-success p-1 m-1"><small>Paid</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">Headaches</p>
+                                                            <p class="opacity-75 small">Dr. Chiu Shen</p>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <P class="text-theme-theme-1 small text-center mb-3">Customer Details</P>
+                                                            <div class="text-center">
+                                                                <div class="avatar avatar-60 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                                </div>
+                                                                <p class="h6 mb-1 ">
+                                                                    <span class="position-relative">Sadabaaz Shekh
+                                                                        <span class="position-absolute top-50 start-100 translate-middle p-1 bg-danger rounded-circle mx-2">
+                                                                            <span class="visually-hidden">New alerts</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </p>
+                                                                <p class="opacity-75 small mb-2">London, UK</p>
+                                                                <span class="badge badge-light rounded-pill text-bg-success">Fresh Case</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <div class="row ">
+                                                                <div class="col">
+                                                                    <button class="btn btn-theme">
+                                                                        <i data-feather="check-circle"></i> <span>Accept</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-outline-danger">
+                                                                        <i data-feather="x-circle"></i> <span>Reject</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide width-300">
+                                                    <div class="card adminuiux-card">
+                                                        <div class="card-header">
+                                                            <div class="row gx-3 mb-2">
+                                                                <div class="col">
+                                                                    <p class="h6 mb-1">2:20 AM</p>
+                                                                    <p class="mb-0 text-secondary">9 June 2024</p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="mb-0 h6">$40.00</p>
+                                                                    <span class="badge bg-success p-1 m-1"><small>Paid</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">High fever and cough</p>
+                                                            <p class="opacity-75 small">Dr. Smriti Vandana</p>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <P class="text-theme-theme-1 small text-center mb-3">Customer Details</P>
+                                                            <div class="text-center">
+                                                                <div class="avatar avatar-60 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                                </div>
+                                                                <p class="h6 mb-1 ">
+                                                                    <span class="position-relative">Julia Williams
+                                                                        <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                                                            <span class="visually-hidden">New alerts</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </p>
+                                                                <p class="opacity-75 small mb-2">United States</p>
+                                                                <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Revisit</span>
+                                                                <span class="badge badge-light rounded-pill text-bg-theme-accent-1">VIP</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <div class="row ">
+                                                                <div class="col">
+                                                                    <button class="btn btn-theme">
+                                                                        <i data-feather="check-circle"></i> <span>Accept</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-outline-danger">
+                                                                        <i data-feather="x-circle"></i> <span>Reject</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/clinic-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script src="assets/js/clinic/clinic-schedule.js"></script>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <!-- page loader -->
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+            <!-- page header -->
+            <%= require('../partials/header/clinic-header.html').default %>
+
+                <!-- page wrapper -->
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- Content  -->
+                            <div class="container mt-4" id="main-content">
+                                <!-- Onboarding banner -->
+                                <div class="row align-items-center">
+                                    <div class="col-12 col-lg-12 mb-4 mb-lg-5 text-center">
+                                        <h1>Getting started is easy and Quicker,</h1>
+                                        <p class="mb-0">Provide your clinic information to quick start appointment bookings.</p>
+                                    </div>
+
+                                </div>
+
+                                <!-- SmartWizard html -->
+                                <div class="card adminuiux-card overflow-hidden mb-4" id="smartwizard">
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#step-1">
+                                                <div class="num">1</div>
+                                                <div>
+                                                    <p class="h5 mb-0">Details</p>
+                                                    <p class="opacity-75 small">Name and Details</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#step-2">
+                                                <div class="num">2</div>
+                                                <div>
+                                                    <p class="h5 mb-0">Clinic Location</p>
+                                                    <p class="opacity-75 small">Guide to reach you</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#step-3">
+                                                <div class="num">3</div>
+                                                <div>
+                                                    <p class="h5 mb-0">Working Hours</p>
+                                                    <p class="opacity-75 small">Availability and Opening hours</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link " href="#step-4">
+                                                <div class="num">4</div>
+                                                <div>
+                                                    <p class="h5 mb-0">Services</p>
+                                                    <p class="opacity-75 small">Add at least 1 service</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="card-body pb-0">
+                                        <div class="tab-content">
+                                            <!-- details -->
+                                            <div id="step-1" class="tab-pane px-0 " role="tabpanel" aria-labelledby="step-1">
+                                                <div class="row align-items-center">
+                                                    <div class="col-12 col-lg-3 text-center mb-3">
+                                                        <figure class="avatar avatar-140 coverimg rounded-circle mt-3 mb-3">
+                                                            <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                                                            <button class="btn btn-square btn-accent rounded-circle" onclick="$(this).next().click()">
+                                                                <i class="bi bi-upload"></i>
+                                                            </button>
+                                                            <input type="file" class="d-none">
+                                                        </figure>
+                                                        <p class="h5">Dr. Alice</p>
+                                                    </div>
+                                                    <div class="col">
+                                                        <!-- Details -->
+                                                        <p class="h6 py-2 mb-2">Clinic Details</p>
+                                                        <div class="row ">
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="clinicname" placeholder="Enter clinic Name" value="DigiClinic AdminUIUX">
+                                                                    <label for="clinicname">Clinic Name</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="clinicmname" placeholder="Enter clinic tagline">
+                                                                    <label for="clinicmname">Clinic Tagline (Optional)</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="phoneon" placeholder="Enter phone" value="+91 4152 21A45488004">
+                                                                    <label for="phoneon">Enter Phone</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="email" class="form-control" id="emailaddresson" placeholder="Enter Email Address" value="alex.smith@tgmail.com">
+                                                                    <label for="emailaddresson">Email Address</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Describe Services and Facilities -->
+                                                        <p class="h6 py-2 mb-2">Describe Services and Facilities</p>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="form-floating mb-3">
+                                                                    <textarea class="form-control height-150" id="describe" placeholder="Enter description about services"></textarea>
+                                                                    <label for="describe">Short description about services</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Address -->
+                                            <div id="step-2" class="tab-pane px-0 pb-0" role="tabpanel" aria-labelledby="step-2">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-3 text-center">
+                                                        <p class="h6 py-2 mb-2">Locate on Map</p>
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d788.4385190507815!2d-122.4278138198206!3d37.772364180178094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1712990839970!5m2!1sen!2sin" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 rounded mb-3"></iframe>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="row align-items-center mb-2">
+                                                            <div class="col">
+                                                                <p class="h6 py-2">Clinic Address</p>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-link"><i data-feather="plus"></i> Add Another</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" id="house" placeholder="Enter branch name">
+                                                            <label for="house">Branch Name</label>
+                                                        </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="house2" placeholder="Enter Shop/Door number" value="12">
+                                                                    <label for="house2">Shop/Door Number</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="street" placeholder="Enter Street" value="Featherstone Street">
+                                                                    <label for="street">Street</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="locality" placeholder="Enter locality" value="Ward">
+                                                                    <label for="locality">Locality</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="town" placeholder="Enter Town" value="London">
+                                                                    <label for="town">Town</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="city" placeholder="Enter City" value="London">
+                                                                    <label for="city">City</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="postcode" placeholder="Enter Postcode" value="NG25 5AY">
+                                                                    <label for="postcode">Postcode</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="text" class="form-control" id="country" placeholder="Enter Country" value="United Kingdom">
+                                                                    <label for="country">Country</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="step-3" class="tab-pane px-0 pb-0" role="tabpanel" aria-labelledby="step-3">
+
+                                                <p class="h6 py-2 mb-2">Working Hours</p>
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-6">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="sunday">
+                                                                    <label class="form-check-label" for="sunday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Sunday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-1">
+                                                                    <label for="starttime-1">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-1">
+                                                                    <label for="endtime-1">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="monday" checked>
+                                                                    <label class="form-check-label" for="monday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Monday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-2">
+                                                                    <label for="starttime-2">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-2">
+                                                                    <label for="endtime-2">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="tuesday" checked>
+                                                                    <label class="form-check-label" for="tuesday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Tuesday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-3">
+                                                                    <label for="starttime-3">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-3">
+                                                                    <label for="endtime-3">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="wednesday" checked>
+                                                                    <label class="form-check-label" for="wednesday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Wednesday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-4">
+                                                                    <label for="starttime-4">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-4">
+                                                                    <label for="endtime-4">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="thursday" checked>
+                                                                    <label class="form-check-label" for="thursday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Thursday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-5">
+                                                                    <label for="starttime-5">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-5">
+                                                                    <label for="endtime-5">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="friday" checked>
+                                                                    <label class="form-check-label" for="friday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Friday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-6">
+                                                                    <label for="starttime-6">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-6">
+                                                                    <label for="endtime-6">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto py-2 mb-3">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="saturday" checked>
+                                                                    <label class="form-check-label" for="saturday">Open</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p>Saturday</p>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="starttime-7">
+                                                                    <label for="starttime-7">Start Time</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="time" class="form-control" id="endtime-7">
+                                                                    <label for="endtime-7">End Time</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class="form-check ">
+                                                        <input class="form-check-input" type="checkbox" name="wokringhours" id="wokringhours" checked="">
+                                                        <label class="form-check-label" for="wokringhours">Working hours same for online
+                                                            bookings</label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </div>
+                                            <div id="step-4" class="tab-pane px-0 pb-0" role="tabpanel" aria-labelledby="step-4">
+                                                <div class="row align-items-center mb-2">
+                                                    <div class="col">
+                                                        <p class="h6 py-2">Services</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-link"><i data-feather="plus"></i> Add Another</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" placeholder="Enter service name" value="Online Consultation">
+                                                            <label>Service Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" placeholder="Enter price" value="52.00">
+                                                            <label>Price ($)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select">
+                                                                <option>VAT 5%</option>
+                                                                <option>GST 20%</option>
+                                                                <option>GST 20%</option>
+                                                            </select>
+                                                            <label>Tax</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" placeholder="Enter discount" value="10%">
+                                                            <label>Discount</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Include optional progressbar HTML -->
+                                    <div class="progress bg-theme-1-subtle rounded-0">
+                                        <div class="progress-bar bg-theme-accent-l-gradient h-100 rounded-0" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </main>
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/index-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script src="assets/js/clinic/clinic-onboarding.js"></script>
+
+
+    </body>
+
+</html>

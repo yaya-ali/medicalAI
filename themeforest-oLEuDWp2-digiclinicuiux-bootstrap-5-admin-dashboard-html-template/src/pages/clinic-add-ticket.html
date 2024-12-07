@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur">
+    <!-- page loader -->
+    <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+      <!-- page header -->
+      <%= require('../partials/header/clinic-header.html').default %>
+
+        <!-- page wrapper -->
+        <div class="adminuiux-wrap">
+
+          <!-- Standard sidebar -->
+          <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb  -->
+              <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                  <div class="row gx-3 align-items-center">
+                    <div class="col col-sm mb-2 mb-sm-0">
+                      <p class="h5">Create Ticket</p>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                          <li class="breadcrumb-item bi"><a href="clinic-help-center.html">Help Center</a></li>
+                          <li class="breadcrumb-item bi"><a href="clinic-ticket-list.html">Support Tickets</a></li>
+                          <li class="breadcrumb-item active bi" aria-current="page">Create Ticket</li>
+                        </ol>
+                      </nav>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="container mt-4" id="main-content">
+                <div class="row ">
+                  <div class="col-12 col-md-12 col-lg-12 col-xxl-8">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-header">
+                        <p class="h6">Ticket Details</p>
+                      </div>
+                      <div class="card-body">
+                        <!-- Title -->
+                        <div class="form-floating mb-4">
+                          <input type="text" class="form-control" id="ticekttitle" placeholder="Ticket Title" value="How to change style for Adminuiux">
+                          <label for="ticekttitle">Ticket Title</label>
+                        </div>
+                        <!-- Textarea -->
+                        <p class="mb-3">Explain your issue in details</p>
+                        <div class="FroalaEditor mb-4">
+                          <h4>This is best interface design template I have ever seen.</h4>
+                          <p>I am really very impressed of work, flexibility, extensibility and elasticity across devices.
+                            Its awesome and I really appreciate this.</p>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="form-floating mb-4">
+                          <input type="text" class="form-control" id="tickettags" placeholder="Ticket Tags">
+                          <label for="tickettags">Ticket Tags</label>
+                        </div>
+
+                        <!-- Meta Description -->
+                        <div class="form-floating ">
+                          <textarea class="form-control" placeholder="Your content here..." id="ticketmetadesc"></textarea>
+                          <label for="ticketmetadesc">Ticket Short Description</label>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-12 col-lg-12 col-xxl-4">
+
+                    <!-- basic details -->
+                    <p class="h6 mb-3">Your Basic Details</p>
+                    <div class="row ">
+                      <div class="col">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control is-valid" id="yourname" placeholder="Enter Your Name">
+                          <label for="yourname">Your Name</label>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <figure class="avatar avatar-60 rounded coverimg mb-3">
+                          <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                          <button class="btn btn-square btn-accent " onclick="$(this).next().click()">
+                            <i class="bi bi-upload"></i>
+                          </button>
+                          <input type="file" class="d-none">
+                        </figure>
+                      </div>
+                    </div>
+                    <div class="form-floating mb-4">
+                      <input type="email" class="form-control  is-invalid" id="youremail" placeholder="Enter your email">
+                      <label for="youremail">Your email</label>
+                    </div>
+
+                    <!-- Image upload  -->
+                    <p class="h6 mb-3">Featured Image <small class="text-secondary fw-normal">(Optional)</small></p>
+                    <div class="row gx-2 mb-3 ">
+                      <div class="col-auto">
+                        <!-- image as bg style-->
+                        <div class="avatar avatar-80 rounded coverimg hover mb-2">
+                          <img src="assets/img/modern-ai-image/modern-bg-1.jpg" alt="">
+                          <div class="overlay">
+                            <button class="btn btn-square btn-light text-danger">
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <p class="text-secondary fs-12">Home1-present...</p>
+                      </div>
+                    </div>
+                    <form action="/target" class="dropzone mb-2" id="myDropzone2">
+                      <div class="dz-default dz-message my-2">
+                        <i class="h1 bi bi-cloud-upload"></i><br>
+                        <button class="dz-button" type="button">Drag and Drop or Click here to upload</button>
+                      </div>
+                    </form>
+
+                    <p class="text-secondary small">Upload only .jpeg, .png, .mp4, .mpeg4 file format max. file
+                      size 6MB</p>
+                    <br>
+                  </div>
+                </div>
+
+                <div class="alert alert-success">
+                  <p>
+                    <span class="spinner-border spinner-border-sm me-2" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </span>
+                    Please wait... We are creating your ticket, it will be posted in few seconds.
+                  </p>
+                </div>
+
+                <!-- save and cancel buttons -->
+                <div class="row mb-3">
+                  <div class="col">
+                    <button class="btn btn-accent my-2">Create</button>
+                  </div>
+                  <div class="col-auto">
+                    <button class="btn btn-link my-2">Cancel</button>
+                  </div>
+                </div>
+                <hr>
+                <div class="my-4 text-center">
+                  <h1>Still you can check most relevant topics...</h1>
+                  <p class="mb-4"> We are happy to assist you as well as upgrade our system. Do let us know your query, concern and
+                    feedback.</p>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                              <i class="bi bi-person-circle fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h5">Login and Logout</p>
+                          </div>
+                        </div>
+                        <div class="list-group adminuiux-list-group list-group-flush">
+                          <a href="#" class="list-group-item list-group-item-action">Login purpose </a>
+                          <a href="#" class="list-group-item list-group-item-action">What are the Login options?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How to reset password?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How to change password?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Where from I can logout from?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                              <i class="bi bi-palette fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h5">Customization &amp; Settings</p>
+                          </div>
+                        </div>
+                        <div class="list-group adminuiux-list-group list-group-flush">
+                          <a href="#" class="list-group-item list-group-item-action">How to change color scheme? </a>
+                          <a href="#" class="list-group-item list-group-item-action">Personalize background images?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Update colors in theme colors?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How to create new theme colors set?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Purpose of the crowd assets?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                              <i class="bi bi-award fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h5">License and Usage</p>
+                          </div>
+                        </div>
+
+                        <div class="list-group adminuiux-list-group list-group-flush">
+                          <a href="#" class="list-group-item list-group-item-action">What is mean bt free license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">What is business license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How is PRO different from free license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Benefits of PRO license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Personal use limitation and restrictions?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+
+        <!-- page footer -->
+        <%= require('../partials/footer/clinic-footer.html').default %>
+          <%= require('../partials/offcanvas/theming.html').default %>
+
+            <!-- Page Level js -->
+            <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
+
+  </body>
+
+</html>

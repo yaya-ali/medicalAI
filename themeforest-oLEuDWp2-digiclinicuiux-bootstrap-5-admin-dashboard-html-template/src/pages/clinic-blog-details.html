@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <!-- page loader -->
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+            <!-- page header -->
+            <%= require('../partials/header/clinic-header.html').default %>
+
+                <!-- page wrapper -->
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb  -->
+                            <div class="container-fluid mt-3">
+                                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                    <div class="row gx-3 align-items-center">
+                                        <div class="col col-sm mb-2 mb-sm-0">
+                                            <p class="h5">My Publications</p>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb mb-0">
+                                                    <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                                                    <li class="breadcrumb-item bi"><a href="clinic-blogs.html">Blogs</a></li>
+                                                    <li class="breadcrumb-item active bi" aria-current="page">Blog Details</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-auto py-1">
+                                            <a href="clinic-add-blog.html" class="btn btn-theme">
+                                                <i class="bi bi-file-earmark-plus me-0 me-md-1"></i>
+                                                <span class="d-none d-md-inline-block">Post</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container-fluid mt-4 mb-4">
+                                <!-- Welcome banner-->
+                                <div class="card adminuiux-card bg-theme-1 position-relative overflow-hidden">
+                                    <div class="coverimg h-100 w-100 start-0 top-0 position-absolute z-index-0 opacity-50">
+                                        <img src="assets/img/modern-ai-image/modern-bg-1.jpg" alt="">
+                                    </div>
+                                    <div class="card-body z-index-1 p-lg-4 p-xl-5 position-relative">
+                                        <h1 class="display-5">Hospital Appointment Scheduling Software App for Clinics,
+                                            Hospitals and Doctors.</h1>
+                                        <p class="lead my-4">Connects and integrates all your appointment sources - Website, Leads,
+                                            Mobile, and reception desk. Everything is in a central appointment management software! Set up
+                                            appointments for your patients in the most effective way and manage record of patient, set
+                                            reminder, sent messages etc. with the help of the Hospital Appointment Scheduling Software
+                                            App.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-light rounded-pill bg-pink text-white">Clinical Revolution</span>
+                                            <span class="badge badge-light rounded-pill bg-yellow-subtle text-orange">Featured</span>
+                                        </p>
+                                        <p>December 25, 2024 by <a href="#" class="text-white">Adminuiux</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" id="main-content">
+
+                                <!-- blog content -->
+                                <div class="row mb-4">
+                                    <div class="col-12 col-md-8">
+
+                                        <!-- card content -->
+                                        <div class="card adminuiux-card mb-3">
+                                            <div class="card-body">
+                                                <article class="blog-post">
+                                                    <h2>Hospital Appointment Scheduling Software App for Clinics, Hospitals and
+                                                        Doctors.</h2>
+                                                    <p class="text-secondary">December 25, 2024 by <a href="#" class="text-white">Adminuiux</a></p>
+
+                                                    <p>This blog post shows a few different types of content that's supported and styled with
+                                                        Bootstrap.
+                                                        Basic
+                                                        typography, lists, tables, images, code, and more are all supported as expected.</p>
+                                                    <hr>
+                                                    <p>This is some additional paragraph placeholder content. It has been written to fill the
+                                                        available
+                                                        space
+                                                        and show how a longer snippet of text affects the surrounding content. We'll repeat it often
+                                                        to keep
+                                                        the
+                                                        demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                                                    <h2>Blockquotes</h2>
+                                                    <p>This is an example blockquote in action:</p>
+                                                    <blockquote class="blockquote">
+                                                        <p>"Quoted text goes here."</p>
+                                                    </blockquote>
+                                                    <p>This is some additional paragraph placeholder content. It has been written to fill the
+                                                        available
+                                                        space
+                                                        and show how a longer snippet of text affects the surrounding content. We'll repeat it often
+                                                        to keep
+                                                        the
+                                                        demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                                                    <h3>Example lists</h3>
+                                                    <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the
+                                                        other
+                                                        highly repetitive body text used throughout. This is an example unordered list:</p>
+                                                    <ul>
+                                                        <li>First list item</li>
+                                                        <li>Second list item with a longer description</li>
+                                                        <li>Third list item to close it out</li>
+                                                    </ul>
+                                                    <p>And this is an ordered list:</p>
+                                                    <ol>
+                                                        <li>First list item</li>
+                                                        <li>Second list item with a longer description</li>
+                                                        <li>Third list item to close it out</li>
+                                                    </ol>
+                                                    <p>And this is a definition list:</p>
+                                                    <dl>
+                                                        <dt>HyperText Markup Language (HTML)</dt>
+                                                        <dd>The language used to describe and define the content of a Web page</dd>
+                                                        <dt>Cascading Style Sheets (CSS)</dt>
+                                                        <dd>Used to describe the appearance of Web content</dd>
+                                                        <dt>JavaScript (JS)</dt>
+                                                        <dd>The programming language used to build advanced Web sites and applications</dd>
+                                                    </dl>
+                                                    <h2>Inline HTML elements</h2>
+                                                    <p>HTML defines a long list of available inline tags, a complete list of which can be found on
+                                                        the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer
+                                                            Network</a>.
+                                                    </p>
+                                                    <ul>
+                                                        <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
+                                                        <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
+                                                        <li>Abbreviations, like <abbr title="HyperText Markup Language">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional
+                                                            <code class="language-plaintext highlighter-rouge">title</code> attribute for the full
+                                                            phrase.
+                                                        </li>
+                                                        <li>Citations, like <cite>— Mark Otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
+                                                        <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and
+                                                            <ins>inserted</ins> text
+                                                            should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.
+                                                        </li>
+                                                        <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript
+                                                            <sub>text</sub>
+                                                            uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.
+                                                        </li>
+                                                    </ul>
+                                                    <p>Most of these elements are styled by browsers with few modifications on our part.</p>
+                                                    <h2>Heading</h2>
+                                                    <p>This is some additional paragraph placeholder content. It has been written to fill the
+                                                        available
+                                                        space
+                                                        and show how a longer snippet of text affects the surrounding content. We'll repeat it often
+                                                        to keep
+                                                        the
+                                                        demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                                                    <h4>Sub-heading</h4>
+                                                    <p>This is some additional paragraph placeholder content. It has been written to fill the
+                                                        available
+                                                        space
+                                                        and show how a longer snippet of text affects the surrounding content. We'll repeat it often
+                                                        to keep
+                                                        the
+                                                        demonstration flowing, so be on the lookout for this exact same string of text.</p>
+                                                    <pre><code>Example code block</code></pre>
+                                                    <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the
+                                                        other
+                                                        highly repetitive body text used throughout.</p>
+                                                </article>
+                                            </div>
+                                        </div>
+
+                                        <!-- navigation -->
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 py-3">
+                                                <a class="style-none" href="#">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <i class="bi bi-chevron-left"></i>
+                                                        </div>
+                                                        <div class="col-auto width-80">
+                                                            <div class="height-60 w-100 rounded coverimg">
+                                                                <img src="assets/img/modern-ai-image/taxi-1.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="h6 text-dark text-truncated mb-1">Awesome UI design to fall in love</p>
+                                                            <p class="text-dark text-truncated mb-2">Just feeling like another world exploring
+                                                                at
+                                                            </p>
+                                                            <p class="text-secondary small">Previous</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-12 col-md-6 py-3 text-end">
+                                                <a class="style-none" href="#">
+                                                    <div class="row align-items-center justify-content-end">
+                                                        <div class="col-6">
+                                                            <p class="h6 text-dark text-truncated mb-1">More you see more you will get amazed
+                                                                with template interface design</p>
+                                                            <p class="text-dark text-truncated mb-2">Just feeling like another world exploring
+                                                                at
+                                                            </p>
+                                                            <p class="text-secondary small">Next</p>
+                                                        </div>
+                                                        <div class="col-auto width-80">
+                                                            <div class="height-60 w-100 rounded coverimg">
+                                                                <img src="assets/img/modern-ai-image/bus-7.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <i class="bi bi-chevron-right"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <div class="position-sticky" style="top: 5.5rem;">
+                                            <div class="card adminuiux-card mb-4">
+                                                <div class="card-body">
+                                                    <p class="h5">About</p>
+                                                    <p class="text-secondary">AdminUIUX is way better than any other template design in terms of
+                                                        user experience design and modern touch of experience design sense. More flexibility and
+                                                        customization available at with easy to develope</p>
+                                                </div>
+                                            </div>
+
+                                            <p class="h6 mb-4">Recent posts</p>
+                                            <ul class="list-unstyled mb-3">
+                                                <li class="pb-3">
+                                                    <a class="style-none" href="#">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-4">
+                                                                <div class="height-80 w-100 rounded coverimg">
+                                                                    <img src="assets/img/modern-ai-image/modern-bg-1.jpg" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <p class="h6 text-dark text-truncated mb-1">Amazing UI UX design for industries
+                                                                    standard to improve accessibility</p>
+                                                                <p class="text-dark text-truncated mb-2">Just feeling like another world exploring
+                                                                    at
+                                                                </p>
+                                                                <p class="text-secondary small">December 15, 2024</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="pb-3">
+                                                    <a class="style-none" href="#">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-4">
+                                                                <div class="height-80 w-100 rounded coverimg">
+                                                                    <img src="assets/img/modern-ai-image/tree-18.jpg" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <p class="h6 text-dark text-truncated mb-1">I love the UI design and content
+                                                                    flexibility provided by template</p>
+                                                                <p class="text-dark text-truncated mb-2">Just feeling like another world exploring
+                                                                    at
+                                                                </p>
+                                                                <p class="text-secondary small">August 27, 2024</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="pb-3">
+                                                    <a class="style-none" href="#">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-4">
+                                                                <div class="height-80 w-100 rounded coverimg">
+                                                                    <img src="assets/img/modern-ai-image/bus-7.jpg" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <p class="h6 text-dark text-truncated mb-1">More you see more you will get amazed
+                                                                    with template interface design</p>
+                                                                <p class="text-dark text-truncated mb-2">Just feeling like another world exploring
+                                                                    at
+                                                                </p>
+                                                                <p class="text-secondary small">July 20, 2024</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <p class="h6 mb-4">Archives</p>
+                                            <ol class="list-group adminuiux-list-group list-group-flush mb-4">
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">March 2025</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">February 2025</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">January 2025</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">December 2024</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">November 2024</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">October 2024</a></li>
+                                            </ol>
+
+                                            <p class="h6 mb-4">Elsewhere</p>
+                                            <ol class="list-group adminuiux-list-group list-group-flush">
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">GitHub</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">Twitter</a></li>
+                                                <li class="list-group-item bg-none"><a href="#" class="style-none">Facebook</a></li>
+                                            </ol>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center my-4 my-xl-5">
+                                    <h1>More trending stories to cover</h1>
+                                    <p class="mb-0">Stay up to date with latest trending topics.</p>
+                                </div>
+                                <!-- Top trending carousel -->
+                                <div class="swiper swipernav mb-4">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" style="max-width: 400px; width: 100%;">
+                                            <div class="card adminuiux-card position-relative overflow-hidden">
+                                                <div class="card-body z-index-1 p-xl-4 position-relative">
+                                                    <p><span class="badge badge-light rounded-pill bg-red text-white">Creative UI UX</span>
+                                                    </p>
+                                                    <p class="text-truncated h4">Hospital Appointment Scheduling Software App for Clinics,
+                                                        Hospitals and Doctors.</p>
+                                                    <p class="text-secondary mb-4">Connects and integrates all your appointment sources - Website,
+                                                        Leads, Mobile,
+                                                    </p>
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <p>
+                                                                <a href="#" class="btn btn-theme theme-red">Read More
+                                                                    <i class="bi bi-arrow-right"></i>
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end">
+                                                            <p><span class="opacity-75">By:</span> Adminuiux</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide" style="max-width: 400px; width: 100%;">
+                                            <div class="card adminuiux-card bg-success text-white position-relative overflow-hidden">
+                                                <div class="coverimg h-100 w-100 start-0 top-0 position-absolute z-index-0 opacity-25">
+                                                    <img src="assets/img/modern-ai-image/tree-5.jpg" alt="">
+                                                </div>
+                                                <div class=" card-body z-index-1 p-xl-4 position-relative">
+                                                    <p><span class="badge badge-light rounded-pill bg-green text-white">Appointment</span>
+                                                    </p>
+                                                    <p class="text-truncated h4">Hospital Appointment Scheduling Software App for Clinics,
+                                                        Hospitals and Doctors.</p>
+                                                    <p class="mb-4">Connects and integrates all your appointment sources - Website, Leads,
+                                                        Mobile,
+                                                    </p>
+                                                    <p><a href="#" class="btn btn-theme theme-green">Read More <i class="bi bi-arrow-right"></i></a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide" style="max-width: 400px; width: 100%;">
+                                            <div class="card adminuiux-card bg-success text-white position-relative overflow-hidden">
+                                                <div class="coverimg h-100 w-100 start-0 top-0 position-absolute z-index-0 opacity-50">
+                                                    <img src="assets/img/modern-ai-image/tree-4.jpg" alt="">
+                                                </div>
+                                                <div class="card-body z-index-1 p-xl-4 position-relative">
+                                                    <p><span class="badge badge-light rounded-pill bg-orange text-white">Medical Champ</span>
+                                                    </p>
+                                                    <p class="text-truncated h4">Hospital Appointment Scheduling Software App for Clinics,
+                                                        Hospitals and Doctors.</p>
+                                                    <p class="mb-4">Connects and integrates all your appointment sources - Website, Leads,
+                                                        Mobile,
+                                                    </p>
+                                                    <p><a href="#" class="btn btn-theme theme-orange">Read More <i class="bi bi-arrow-right"></i></a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide" style="max-width: 400px; width: 100%;">
+                                            <div class="card adminuiux-card position-relative overflow-hidden">
+                                                <div class="card-body z-index-1 p-xl-4 position-relative">
+                                                    <p><span class="badge badge-light rounded-pill bg-pink text-white">New to world</span>
+                                                    </p>
+                                                    <p class="text-truncated h4">Hospital Appointment Scheduling Software App for Clinics,
+                                                        Hospitals and Doctors.</p>
+                                                    <p class="text-secondary mb-4">Connects and integrates all your appointment sources - Website,
+                                                        Leads, Mobile,
+                                                    </p>
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <p>
+                                                                <a href="#" class="btn btn-theme theme-red">Read More
+                                                                    <i class="bi bi-arrow-right"></i>
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-auto text-end">
+                                                            <p><span class="opacity-75">By:</span> Adminuiux</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </main>
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/clinic-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+
+
+    </body>
+
+</html>

@@ -1,0 +1,71 @@
+<!-- Concatenated plugins -->
+<script src="assets/js/app.js"></script>
+
+<!-- template js -->
+<script src="assets/js/functions.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- Additional Features -->
+<script src="assets/js/responsive.js"></script>
+
+<!-- style personalize -->
+<script src="assets/js/color-scheme.js"></script>
+
+<!-- code highlighter -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/base16/circus.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+    document.querySelectorAll('.code').forEach(el => {
+        // then highlight each
+        hljs.highlightElement(el);
+    });
+</script>
+
+<!-- Page Level js -->
+{{#ifpage 'component-chartjs'}}
+
+{{/ifpage}}
+
+{{#ifpage 'component-datatable'}}
+
+{{/ifpage}}
+
+{{#ifpage 'component-dragula'}}
+
+{{/ifpage}}
+
+{{#ifpage 'component-dropzone'}}
+
+{{/ifpage}}
+
+{{#ifpage 'component-footable'}}
+<script src="assets/js/component-footable.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-full-calendar'}}
+<script src="assets/js/component-fullcalendar.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-inputs'}}
+<script src="assets/js/component-inputs.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-progressbar-js'}}
+<script src="assets/js/component-progressbarjs.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-sliders'}}
+<script src="assets/js/component-rangeslider.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-smartwizard'}}
+<script src="assets/js/component-smartwizard.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-toasts'}}
+<script src="assets/js/component-toasts.js"></script>
+{{/ifpage}}
+
+{{#ifpage 'component-swiper-carousel'}}
+<script src="assets/js/component-carousel.js"></script>
+{{/ifpage}}

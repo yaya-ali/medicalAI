@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur">
+    <!-- page loader -->
+    <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+      <!-- page header -->
+      <%= require('../partials/header/clinic-header.html').default %>
+
+        <!-- page wrapper -->
+        <div class="adminuiux-wrap">
+
+          <!-- Standard sidebar -->
+          <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb  -->
+              <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                  <div class="row gx-3 align-items-center">
+                    <div class="col col-sm mb-2 mb-sm-0">
+                      <p class="h5">Help Center</p>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                          <li class="breadcrumb-item active bi" aria-current="page">Help Center</li>
+                        </ol>
+                      </nav>
+                    </div>
+                    <div class="col-auto py-1 ms-auto">
+                      <a href="clinic-ticket-list.html" class="btn btn-theme"> Tickets
+                        <i data-feather="arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="container mt-4" id="main-content">
+                <!-- Banner title -->
+                <div class="card adminuiux-card bg-theme-1 position-relative mt-4">
+                  <div class="coverimg top-0 start-0 h-100 w-100 position-absolute rounded opacity-25">
+                    <img src="assets/img/modern-ai-image/modern-bg-3.jpg" alt="">
+                  </div>
+                  <div class="card-body py-5 z-index-1">
+                    <div class="row justify-content-center mb-5 py-3">
+                      <div class="col-11 col-md-10 col-lg-8 col-xl-7 col-xxl-5 text-center position-relative z-index-1">
+                        <h1>How can we help you?</h1>
+                        <p class="h6 fw-normal mb-3 mb-lg-4">Find solution for your troubles. We have wide range of learning tutorials
+                          and supports.</p>
+                        <!-- search -->
+                        <div class="input-group input-group-lg shadow">
+                          <span class="input-group-text text-theme"><i class="bi bi-search"></i></span>
+                          <input class="form-control" type="search" placeholder="Search your query here...">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- quick links -->
+                <div class="row justify-content-center mt--75">
+                  <div class="col-11">
+                    <div class="row">
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card bg-white border-0 text-center mb-4">
+                          <div class="card-body p-4 px-lg-5">
+                            <i class="bi bi-person-video3 h1 text-theme-accent-1 mb-0 d-block"></i><br>
+                            <p class="h5 text-theme-1">Schedule a Demo</p>
+                            <p class="text-secondary">Get details of features and quick look on how it works. Schedule a demo for your for free.</p>
+                            <a href="clinic-schedule.html" class="btn btn-theme">Book Demo</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card bg-white border-0 text-center mb-4">
+                          <div class="card-body p-4 px-lg-5">
+                            <i class="bi bi-chat-right-dots h1 text-theme-accent-1 mb-0 d-block"></i><br>
+                            <p class="h5 text-theme-1">Communicate</p>
+                            <p class="text-secondary">You have live assistant with whom you can share your query &amp; get answered.
+                            </p>
+                            <a href="clinic-ticket-list.html" class="btn btn-theme">Watch Community</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card bg-white border-0 text-center mb-4">
+                          <div class="card-body p-4 px-lg-5">
+                            <i class="bi bi-life-preserver h1 text-theme-accent-1 mb-0 d-block"></i><br>
+                            <p class="h5 text-theme-1">Get Support</p>
+                            <p class="text-secondary">Connect with our expert by submitting details with photos &amp; documents.</p>
+                            <a href="clinic-add-ticket.html" class="btn btn-theme">Create Ticket</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- top queries  -->
+                <p class="h6 mb-3">Popular Questions</p>
+                <p class="mb-3">
+                  <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">How we can do edits in index pages?</a>
+                  <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">Is this template comes with Laravel vue js?</a>
+                  <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">Is there angular development suggestions before starting
+                    work?</a>
+                  <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">How to reduce width of any boxes with responsiveness?</a>
+                  <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">How can you defined new color set ?</a>
+                  <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">What are the primary color set and what to keep in mind?</a>
+                </p>
+                <!-- top queries categories -->
+                <p class="h6 mb-3">Help by Categories</p>
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                              <i class="bi bi-person-circle fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h5">Login and Logout</p>
+                          </div>
+                        </div>
+                        <div class="list-group adminuiux-list-group list-group-flush">
+                          <a href="#" class="list-group-item list-group-item-action">Login purpose </a>
+                          <a href="#" class="list-group-item list-group-item-action">What are the Login options?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How to reset password?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How to change password?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Where from I can logout from?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                              <i class="bi bi-palette fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h5">Customization &amp; Settings</p>
+                          </div>
+                        </div>
+                        <div class="list-group adminuiux-list-group list-group-flush">
+                          <a href="#" class="list-group-item list-group-item-action">How to change color scheme? </a>
+                          <a href="#" class="list-group-item list-group-item-action">Personalize background images?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Update colors in theme colors?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How to create new theme colors set?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Purpose of the crowd assets?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                              <i class="bi bi-award fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h5">License and Usage</p>
+                          </div>
+                        </div>
+
+                        <div class="list-group adminuiux-list-group list-group-flush">
+                          <a href="#" class="list-group-item list-group-item-action">What is mean bt free license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">What is business license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">How is PRO different from free license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Benefits of PRO license?</a>
+                          <a href="#" class="list-group-item list-group-item-action">Personal use limitation and restrictions?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- raise ticket -->
+                <div class="my-4 text-center">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                      <h1>Couldn't find what you are looking for?</h1>
+                      <p class="mb-4">Its possible human made mistakes and possibly we may missed it. We are happy to
+                        assist you as well as upgrade our system. Do let us know your query, concern and feedback.</p>
+                      <a href="clinic-contactus.html" class="btn btn-theme">Connect with us</a>
+                      <a href="" class="btn btn-outline-accent ms-2">Leave us feedback</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+
+        <!-- page footer -->
+        <%= require('../partials/footer/clinic-footer.html').default %>
+          <%= require('../partials/offcanvas/theming.html').default %>
+
+            <!-- Page Level js -->
+
+
+  </body>
+
+</html>

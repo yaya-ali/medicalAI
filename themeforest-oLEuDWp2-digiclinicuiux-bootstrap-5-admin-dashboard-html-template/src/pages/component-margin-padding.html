@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+            <%= require('../partials/header/index-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <main class="adminuiux-content" onclick="contentClick()">
+
+                        <!-- breadcrumb -->
+                        <div class="container-fluid mt-3">
+                            <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm mb-2 mb-sm-0">
+                                        <p class="h5">Margin Padding</p>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb mb-0">
+                                                <li class="breadcrumb-item bi"><a href="investment-dashboard.html">App Demo</a></li>
+                                                <li class="breadcrumb-item bi"><a href="components.html">Components</a></li>
+                                                <li class="breadcrumb-item active bi" aria-current="page">Margin Padding</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                    <div class="col-auto ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content  -->
+                        <div class="container mt-4">
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Margin</p>
+                                        </div>
+                                        <div class="col-auto">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p>Margin classes are prefix with <code>m-, mt- , me-, mb-, ms-, my-, mx-</code> for margin all side, margin-top, margin-end(right), margin-bottom, margin-start(left), margin-top-bottom, margin-start-end respectively.</p>
+                                    <p class="text-secondary">All side margin</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 m-1">.m-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 m-2">.m-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 m-3">.m-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 m-4">.m-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 m-5">.m-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">Top margin</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 mt-1">.mt-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 mt-2">.mt-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 mt-3">.mt-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 mt-4">.mt-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 mt-5">.mt-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">End/Right margin</p>
+                                    <div class="row text-end mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 me-1">.me-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 me-2">.me-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 me-3">.me-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 me-4">.me-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 me-5">.me-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">Bottom margin</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded d-flex align-items-end">
+                                                <span class="badge text-bg-theme-1 mb-1">.mb-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded d-flex align-items-end">
+                                                <span class="badge text-bg-theme-1 mb-2">.mb-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded d-flex align-items-end">
+                                                <span class="badge text-bg-theme-1 mb-3">.mb-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded d-flex align-items-end">
+                                                <span class="badge text-bg-theme-1 mb-4">.mb-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded d-flex align-items-end">
+                                                <span class="badge text-bg-theme-1 mb-5">.mb-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">Start(Left) margin</p>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ms-1">.ms-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ms-2">.ms-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ms-3">.ms-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ms-4">.ms-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ms-5">.ms-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Padding</p>
+                                        </div>
+                                        <div class="col-auto">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p>Padding classes are prefix with <code>p-, pt- , pe-, pb-, ps-, py-, px-</code> for padding all side, padding-top, padding-end(right), padding-bottom, padding-start(left), padding-top-bottom, padding-start-end respectively.</p>
+                                    <p class="text-secondary">All side padding</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 p-1">.p-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 p-2">.p-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 p-3">.p-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 p-4">.p-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 p-5">.p-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">Top margin</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pt-1">.p-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pt-2">.pt-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pt-3">.pt-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pt-4">.pt-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pt-5">.pt-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">End/Right margin</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pe-1">.pe-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pe-2">.pe-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pe-3">.pe-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pe-4">.pe-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pe-5">.pe-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">Bottom margin</p>
+                                    <div class="row mb-4">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pb-1">.pb-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pb-2">.pb-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pb-3">.pb-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pb-4">.pb-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 pb-5">.pb-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary">Start(Left) margin</p>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ps-1">.ps-1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ps-2">.ps-2</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ps-3">.ps-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ps-4">.ps-4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl">
+                                            <div class="h-100 w-100 border rounded">
+                                                <span class="badge text-bg-theme-1 ps-5">.ps-5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- component footer -->
+                            <div class="bg-theme-1-subtle rounded px-3 py-2 mb-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="component-heights-widths.html" class="btn btn-accent me-3 my-2"><i class="bi bi-arrow-left mr-2"></i> Height and Width</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="component-buttons.html" class="btn btn-theme my-2">Buttons <i class="bi bi-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </main>
+                </div>
+
+                <%= require('../partials/footer/index-footer.html').default %>
+    </body>
+
+</html>

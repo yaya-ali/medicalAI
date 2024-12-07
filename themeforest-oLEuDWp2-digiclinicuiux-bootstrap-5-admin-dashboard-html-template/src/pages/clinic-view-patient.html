@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <!-- page loader -->
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+            <!-- page header -->
+            <%= require('../partials/header/clinic-header.html').default %>
+
+                <!-- page wrapper -->
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb  -->
+                            <div class="container-fluid mt-3">
+                                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                    <div class="row gx-3 align-items-center">
+                                        <div class="col col-sm mb-2 mb-sm-0">
+                                            <p class="h5">Patient Details</p>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb mb-0">
+                                                    <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                                                    <li class="breadcrumb-item bi"><a href="clinic-patients.html">Patients</a></li>
+                                                    <li class="breadcrumb-item active bi" aria-current="page">Patients Details</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-auto py-1">
+                                            <a href="clinic-add-patient.html" class="btn btn-theme">
+                                                <i data-feather="plus" class="me-0 me-md-1"></i> <span class="d-none d-md-inline-block">Edit</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container mt-4" id="main-content">
+                                <!-- patient profile -->
+                                <div class="card adminuiux-card mb-4">
+                                    <div class="card-body">
+                                        <div class="row ">
+                                            <div class="col-12 col-sm-auto text-center mb-3 mb-md-0">
+                                                <figure class="avatar avatar-120 mb-0 coverimg rounded-circle">
+                                                    <img src="assets/img/modern-ai-image/user-6-kid.jpg" alt="">
+                                                </figure>
+                                            </div>
+                                            <div class="col-12 col-sm text-center text-sm-start">
+                                                <div class="row mb-2">
+                                                    <div class="col-12 col-sm mb-3 mb-sm-0">
+                                                        <p class="h4 style-none">Alicia Smith</p>
+                                                        <p>
+                                                            <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Revisit</span>
+                                                            <span class="badge badge-light rounded-pill text-bg-theme-accent-1">VIP</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-auto ">
+                                                        <button class="btn btn-square btn-outline-success mx-2" data-bs-toggle="tooltip" aria-label="Call" title="Call"> <i data-feather="phone"></i>
+                                                        </button>
+                                                        <button class="btn btn-square btn-outline-warning" data-bs-toggle="tooltip" aria-label="Message" title="Message"> <i data-feather="message-circle"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <p class="text-secondary">
+                                                    12, Featherstone Street, Ward, London, NG25 5AY<br>United Kingdom
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer border-top">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <p class="h5">19 <small>yr</small></p>
+                                                <p class="text-secondary small"><i class="bi bi-cake me-1"></i> 26-04-2006</p>
+                                            </div>
+                                            <div class="col-auto">
+                                                <p class="h5">A+</p>
+                                                <p class="text-secondary small"><i class="bi bi-droplet-half"></i> Blood Group</p>
+                                            </div>
+                                            <div class="col-auto">
+                                                <p class="h5">38</p>
+                                                <p class="text-secondary small"><i class="bi bi-speedometer"></i> Weight</p>
+                                            </div>
+                                            <div class="col-12 col-md-auto ms-auto mt-4 mt-md-0">
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-theme-1-subtle text-theme-accent-1 rounded">
+                                                            <i class="bi bi-calendar-week fs-4"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h5">9:30 AM, Today</p>
+                                                        <p class="text-secondary small">Upcoming 2 min to go</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- patient stats-->
+                                <div class="row ">
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                                        <div class="card adminuiux-card bg-orange-subtle">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-white text-danger-emphasis rounded">
+                                                            <i class="bi bi-heart-pulse fs-4"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h4 mb-0">80 <small class="opacity-50 h6 fw-normal">bpm</small>
+                                                        </p>
+                                                        <p class="opacity-50">HeartBeat</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                                        <div class="card adminuiux-card bg-yellow-subtle">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-white text-warning-emphasis rounded">
+                                                            <i class="bi bi-thermometer-half fs-4"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h4 mb-0">30.7<sup>&deg;</sup> <small class="opacity-50 h6 fw-normal">C</small>
+                                                        </p>
+                                                        <p class="opacity-50">Temp.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                                        <div class="card adminuiux-card bg-cyan-subtle">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-white text-info-emphasis rounded">
+                                                            <i class="bi bi-droplet-half fs-4"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h4 mb-0">98 <small class="opacity-50 h6 fw-normal">%</small>
+                                                        </p>
+                                                        <p class="opacity-50">Oxygen</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                                        <div class="card adminuiux-card bg-pink-subtle ">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-white text-pink-emphasis rounded">
+                                                            <i class="bi bi-boxes fs-4"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h4 mb-0">65 <small class="opacity-50 h6 fw-normal">mg/dl</small>
+                                                        </p>
+                                                        <p class="opacity-50">Glucose</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- patient medical details-->
+                                <div class="row ">
+                                    <!-- Sleep monitoring for patients -->
+                                    <div class="col-12 col-sm-12 col-xl-4 col-xxl-6 mb-4">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-header">
+                                                <p class="h6 mb-1">Patient sleep monitoring</p>
+                                                <p class="text-secondary small">Last updated: 6hrs before</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto mb-3">
+                                                        <p class="h4 mb-0">8.25 <small class="fw-normal fs-6">hours</small></p>
+                                                        <p class="text-secondary small">Daily Sleep</p>
+                                                    </div>
+                                                    <div class="col mb-3">
+                                                        <p class="h4 mb-0">1.5 <small class="fw-normal fs-6">hours</small></p>
+                                                        <p class="text-secondary small">Day Sleep</p>
+                                                    </div>
+                                                </div>
+                                                <div class="height-190 w-100">
+                                                    <canvas id="patientsummary"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Medication -->
+                                    <div class="col-12 col-sm-6 col-xl-4 col-xxl-3 mb-4">
+                                        <div class="card adminuiux-card h-100   ">
+                                            <div class="card-header">
+                                                <p class="h6 mb-1">Medication</p>
+                                                <p class="text-secondary small">Last visit: 12-04-2024</p>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-pink-subtle text-pink-emphasis rounded">
+                                                            <i class="bi bi-capsule fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h6 mb-1">Vitamin C</p>
+                                                        <p class="opacity-50">1 Tablet, 2 time (1-0-1)</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-blue-subtle text-blue-emphasis rounded">
+                                                            <i class="bi bi-capsule-pill fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h6 mb-1">Vitamin A</p>
+                                                        <p class="opacity-50">1 Tablet, 2 time (1-0-1)</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-warning-subtle text-warning-emphasis rounded">
+                                                            <i class="bi bi-capsule fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h6 mb-1">Zinc</p>
+                                                        <p class="opacity-50">1 Tablet, 1 time (0-1-0)</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-50 bg-green-subtle text-green-emphasis rounded">
+                                                            <i class="bi bi-clipboard2-pulse fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="h6 mb-1">Routine Checkup</p>
+                                                        <p class="opacity-50">2 time (1-0-1)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- xray -->
+                                    <div class="col-12 col-sm-6 col-xl-4 col-xxl-3 mb-4">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-header">
+                                                <p class="h6 mb-1">Recent Images</p>
+                                                <p class="text-secondary small">Last updated: 11-04-2024</p>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="row align-items-center">
+                                                    <div class="col-6 mb-3">
+                                                        <div class="rounded height-120 coverimg">
+                                                            <img src="assets/img/modern-ai-image/xray-1.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3">
+                                                        <div class="rounded height-120 coverimg">
+                                                            <img src="assets/img/modern-ai-image/xray-2.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3">
+                                                        <div class="rounded height-120 coverimg">
+                                                            <img src="assets/img/modern-ai-image/xray-3.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3">
+                                                        <div class="rounded height-120 coverimg">
+                                                            <img src="assets/img/modern-ai-image/xray-4.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- patient schedules list  -->
+                                    <div class="col-12 col-lg-8 col-xl-8 col-xxl-9">
+                                        <div class="card adminuiux-card mb-4">
+                                            <div class="card-header">
+                                                <p class="h6 mb-1">Patient Appointments</p>
+                                                <p class="text-secondary small">6 Completed, 1 upcoming Appointments</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- data table -->
+                                                <table id="clientScheduleGrid" class="table w-100 nowrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th class="all">Schedule</th>
+                                                            <th data-breakpoints="xs sm md">Disease</th>
+                                                            <th data-breakpoints="xs sm">Payment</th>
+                                                            <th data-breakpoints="xs sm">Status</th>
+                                                            <th class="all">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2054ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">9:10 AM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Allergies</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 40.0</p>
+                                                                <p class="text-success small">Paid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-warning">Pending</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>105ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">10:30 AM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Colds and flu</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 40.0</p>
+                                                                <p class="text-success small">Paid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-primary">Waiting</span>
+                                                            </td>
+                                                            <td><button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>058ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">11:30 AM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Diarrhea</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 40.0</p>
+                                                                <p class="text-danger small">Unpaid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-success">Complete</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>500ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">11:55 AM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Conjunctivitis</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 120.0</p>
+                                                                <p class="text-danger small">Unpaid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-danger">Rejected</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2054ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">12:15 PM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Headaches</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 80.0</p>
+                                                                <p class="text-success small">Paid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-warning">Pending</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>105ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">1:30 PM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Mononucleosis</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 55.0</p>
+                                                                <p class="text-success small">Paid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Waiting</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>058ID</td>
+                                                            <td>
+                                                                <p class="mb-0 fw-medium">2:20 AM</p>
+                                                                <p class="text-secondary small">9 June 2024</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">Stomach aches</p>
+                                                                <p class="text-secondary small">Dr. Ryan Sylia</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0">$ 85.0</p>
+                                                                <p class="text-danger small">Unpaid</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-light rounded-pill text-bg-info">In-Progress</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#viewappointmentmodal">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                                <div class="dropdown d-inline-block">
+                                                                    <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- Upload files personal -->
+                                            <div class="col-12 col-xl-6 mb-4">
+                                                <p class="h6 mb-3">Personal Documents</p>
+                                                <div class="row gx-2">
+                                                    <div class="col-auto mb-2">
+                                                        <!-- image as bg style-->
+                                                        <div class="avatar avatar-80 rounded coverimg hover mb-2">
+                                                            <img src="assets/img/modern-ai-image/user-1.jpg" alt="">
+                                                            <div class="overlay">
+                                                                <button class="btn btn-square btn-light text-danger">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-secondary fs-12">Home1-present...</p>
+                                                    </div>
+                                                    <div class="col-auto mb-2">
+                                                        <!-- image as bg style-->
+                                                        <div class="avatar avatar-80 rounded coverimg hover mb-2">
+                                                            <img src="assets/img/modern-ai-image/modern-bg-3.jpg" alt="">
+                                                            <div class="overlay">
+                                                                <button class="btn btn-square btn-light text-danger">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-secondary fs-12">Home1-present...</p>
+                                                    </div>
+                                                    <div class="col-auto mb-2">
+                                                        <!-- image as bg style-->
+                                                        <div class="avatar avatar-80 rounded coverimg hover mb-2">
+                                                            <img src="assets/img/modern-ai-image/modern-bg-1.jpg" alt="">
+                                                            <div class="overlay">
+                                                                <button class="btn btn-square btn-light text-danger">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-secondary fs-12">Home1-present...</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <form action="/target" class="dropzone mb-3" id="myDropzone2">
+                                                            <div class="dz-default dz-message my-1">
+                                                                <i class="h5 bi bi-cloud-upload"></i><br>
+                                                                <button class="dz-button" type="button"><small>Upload</small></button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <p class="text-secondary small">**Upload only .jpeg, .png, .mp4, .mpeg4 file format max. file
+                                                    size 6MB</p>
+                                            </div>
+                                            <!-- Upload files document -->
+                                            <div class="col-12 col-xl-6 mb-4">
+                                                <p class="h6 mb-3">Medical Documents</p>
+                                                <div class="row gx-2">
+                                                    <div class="col-auto mb-2">
+                                                        <!-- image as bg style-->
+                                                        <div class="avatar avatar-70 bg-danger text-white rounded hover mb-2 position-relative">
+                                                            <i class="bi bi-filetype-pdf h1"></i>
+                                                            <div class="overlay">
+                                                                <button class="btn btn-square btn-light text-danger">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-secondary fs-12">Home1-present...</p>
+                                                    </div>
+                                                    <div class="col-auto mb-2">
+                                                        <!-- image as bg style-->
+                                                        <div class="avatar avatar-70 rounded bg-success text-white hover mb-2">
+                                                            <i class="bi bi-filetype-xls h1"></i>
+                                                            <div class="overlay">
+                                                                <button class="btn btn-square btn-light text-danger">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-secondary fs-12">Home1-present...</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <form action="/target" class="dropzone mb-3" id="myDropzone1">
+                                                            <div class="dz-default dz-message my-1">
+                                                                <i class="h5 bi bi-cloud-upload"></i><br>
+                                                                <button class="dz-button" type="button"><small>Upload</small></button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <p class="text-secondary small">Upload only .jpeg, .png, .mp4, .mpeg4 file format max. file
+                                                    size 6MB</p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="mb-4 mb-lg-5 text-center">
+                                            <h1>Here are doctors in emergency?</h1>
+                                            <p class="mb-0">Let's give priority and give quick treatment for quick recovery
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <!-- doctors -->
+                                            <div class="col-12 col-md-6 col-xl-6">
+                                                <div class="card adminuiux-card mb-4">
+                                                    <div class="card-body">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p class="h6 mb-1 ">Dr. Ryan Sylia</p>
+                                                                <p class="text-secondary small">General Expert</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <p class="h5 mb-0">0.5 <small class="h6 fw-normal">hours</small></p>
+                                                                <p class="text-secondary small">Available now</p>
+                                                            </div>
+                                                            <div class="col text-end">
+                                                                <p class="h5 mb-0">5 <small class="h6 fw-normal">Visits</small></p>
+                                                                <p class="text-secondary small">Today</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="row ">
+                                                            <div class="col">
+                                                                <button class="btn btn-theme">
+                                                                    <i class="bi bi-plus"></i> <span>Book</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-square btn-outline-success mx-2">
+                                                                    <i data-feather="phone"></i>
+                                                                </button>
+                                                                <button class="btn btn-square btn-outline-warning">
+                                                                    <i data-feather="message-circle"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-xl-6">
+                                                <div class="card adminuiux-card mb-4">
+                                                    <div class="card-body">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <p class="h6 mb-1 ">Dr. Aditi Soni</p>
+                                                                <p class="text-secondary small">Master in Surgery</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <p class="h5 mb-0">2 <small class="h6 fw-normal">hours</small></p>
+                                                                <p class="text-secondary small">Available now</p>
+                                                            </div>
+                                                            <div class="col text-end">
+                                                                <p class="h5 mb-0">3 <small class="h6 fw-normal">Visits</small></p>
+                                                                <p class="text-secondary small">Today</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="row ">
+                                                            <div class="col">
+                                                                <button class="btn btn-theme">
+                                                                    <i class="bi bi-plus"></i> <span>Book</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-square btn-outline-success mx-2">
+                                                                    <i data-feather="phone"></i>
+                                                                </button>
+                                                                <button class="btn btn-square btn-outline-warning">
+                                                                    <i data-feather="message-circle"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- patient timeline -->
+                                    <div class="col-12 col-lg-4 col-xl-4 col-xxl-3">
+                                        <div class="card adminuiux-card mb-4">
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p class="h6 mb-1">Patient Timeline</p>
+                                                        <p class="text-secondary small">Last 30 notes visible</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#addnote">
+                                                            <i data-feather="edit"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body height-dynamic overflow-y-auto" style="--h-dynamic:382px">
+                                                <ul class="timeline circle">
+                                                    <li>
+                                                        <span class="circle-dot bg-theme-1" data-bs-toggle="tooltip" title="Normal"></span>
+                                                        <div>
+                                                            <p class="mb-2">9 June 2024 11:55 AM </p>
+                                                            <p class="text-secondary small">Patient has very low fever just due to stressed out and
+                                                                need some bed rest. Peracetamol given for 2 days 1-0-1 duration.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="circle-dot bg-warning" data-bs-toggle="tooltip" title="Better"></span>
+                                                        <div>
+                                                            <p class="mb-2">7 June 2024 10:15 AM </p>
+                                                            <p class="text-secondary small">Patient has very high fever just due to stressed out and
+                                                                need some bed rest. Peracetamol given for 2 days 1-0-1 duration.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="circle-dot bg-danger" data-bs-toggle="tooltip" title="Critical"></span>
+                                                        <div>
+                                                            <p class="mb-2">6 June 2024 5:00 PM </p>
+                                                            <p class="text-secondary small">Patient has very low fever just due to stressed out and
+                                                                need some bed rest. Peracetamol given for 2 days 1-0-1 duration.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="circle-dot bg-theme-1"></span>
+                                                        <div>
+                                                            <p class="mb-2">1 June 2024 11:55 AM </p>
+                                                            <p class="text-secondary small">Patient has very low fever just due to stressed out and
+                                                                need some bed rest. Peracetamol given for 2 days 1-0-1 duration.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal" tabindex="-1" id="addnote">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <p class="h6">Add Appointment Notes</p>
+                                            <button type="button" class="btn btn-square btn-link btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Leave a notes here" id="notesadd"></textarea>
+                                                <label for="notesadd">Notes</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-theme">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/clinic-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script src="assets/js/clinic/clinic-view-patient.js"></script>
+
+
+    </body>
+
+</html>

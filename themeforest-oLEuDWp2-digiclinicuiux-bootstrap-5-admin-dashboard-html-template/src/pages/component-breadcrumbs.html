@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+            <%= require('../partials/header/index-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <main class="adminuiux-content" onclick="contentClick()">
+
+                        <!-- breadcrumb -->
+                        <div class="container-fluid mt-3">
+                            <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm mb-2 mb-sm-0">
+                                        <p class="h5">Breadcrumb</p>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb mb-0">
+                                                <li class="breadcrumb-item bi"><a href="investment-dashboard.html">App Demo</a></li>
+                                                <li class="breadcrumb-item bi"><a href="components.html">Components</a></li>
+                                                <li class="breadcrumb-item active bi" aria-current="page">Breadcrumb</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                    <div class="col-auto ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content  -->
+                        <div class="container mt-4">
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Standard Breadcrumb</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-outline-theme btn-square" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">
+                                                <i class="bi bi-code-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'/'">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                                        </ol>
+                                    </nav>
+
+                                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'/'">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                        </ol>
+                                    </nav>
+
+                                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'&#x21E2;'">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                        </ol>
+                                    </nav>
+
+                                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'&#x27BA;'">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                        </ol>
+                                    </nav>
+
+
+                                    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div class="collapse" id="collapse1">
+                                    <div class="card-footer border-top">
+                                        <div class="bg-dark text-white p-2 rounded my-2">
+                                            <pre class="mb-2"><code class="code rounded language-html">
+&lt;nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'/'"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Home&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+                    
+&lt;nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'/'"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Library&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+                    
+&lt;nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'&#x21E2;'"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+                    
+&lt;nav aria-label="breadcrumb" style="--bs-breadcrumb-divider:'&#x27BA;'"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+                    
+                    
+&lt;nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Library&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                                            <button type="button" class="btn btn-outline-light  btn-square copycode"><i class="bi bi-clipboard"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- component footer -->
+                            <div class="bg-theme-1-subtle rounded px-3 py-2 mb-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="component-tabs.html" class="btn btn-accent me-3 my-2"><i class="bi bi-arrow-left mr-2"></i> Tabs</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="component-scrollspy.html" class="btn btn-theme my-2">ScrollSpy <i class="bi bi-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </main>
+                </div>
+
+                <%= require('../partials/footer/index-footer.html').default %>
+    </body>
+
+</html>

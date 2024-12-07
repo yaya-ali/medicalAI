@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <!-- page loader -->
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+            <!-- page header -->
+            <%= require('../partials/header/clinic-header.html').default %>
+
+                <!-- page wrapper -->
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb  -->
+                            <div class="container-fluid mt-3">
+                                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                    <div class="row gx-3 align-items-center">
+                                        <div class="col col-sm mb-2 mb-sm-0">
+                                            <p class="h5">Add Appointment</p>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb mb-0">
+                                                    <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                                                    <li class="breadcrumb-item bi"><a href="clinic-schedule.html">schedules</a></li>
+                                                    <li class="breadcrumb-item active bi" aria-current="page">Add Appointment</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-auto py-1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- content -->
+                            <div class="container mt-4" id="main-content">
+                                <!-- add appointment fields -->
+
+                                <div class="row ">
+                                    <div class="col-12 col-md-12 col-xl-8 col-xxl-9">
+                                        <div class="card adminuiux-card mb-4">
+                                            <div class="card-body">
+                                                <!-- categories -->
+                                                <p class="h6 mb-3">Category and Doctors</p>
+                                                <div class="mb-2">
+                                                    <button class="btn btn-outline-accent mb-2 me-1 active">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-clipboard2-pulse"></i>
+                                                        </span>
+                                                        <span>Pediatric</span>
+                                                    </button>
+                                                    <button class="btn btn-outline-accent mb-2 me-1">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-hand-index-thumb"></i>
+                                                        </span>
+                                                        <span>Orthopedic</span>
+                                                    </button>
+                                                    <button class="btn btn-outline-accent mb-2 me-1">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-heart-pulse"></i>
+                                                        </span>
+                                                        <span>Cardiology</span>
+                                                    </button>
+                                                    <button class="btn btn-outline-accent mb-2 me-1">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-lungs"></i>
+                                                        </span>
+                                                        <span>Lungs</span>
+                                                    </button>
+                                                    <button class="btn btn-outline-accent mb-2 me-1">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-eye"></i>
+                                                        </span>
+                                                        <span>Eye</span>
+                                                    </button>
+                                                    <button class="btn btn-outline-accent mb-2 me-1">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-person-arms-up"></i>
+                                                        </span>
+                                                        <span>Physiotherapist</span>
+                                                    </button>
+                                                    <button class="btn btn-outline-accent mb-2 me-1">
+                                                        <span class="avatar avatar-20 me-1">
+                                                            <i class="bi bi-prescription"></i>
+                                                        </span>
+                                                        <span>Other</span>
+                                                    </button>
+                                                </div>
+                                                <!-- doctors -->
+                                                <div class="swiper swiperautononav mb-4">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide width-280">
+                                                            <div class="card adminuiux-card border">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                                <img src="assets/img/modern-ai-image/user-8.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col mb-3">
+                                                                            <p class="h6 mb-1 ">
+                                                                                <span class="position-relative">Dr. Ryan Sylia
+                                                                                    <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                                                                        <span class="visually-hidden">New alerts</span>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p class="text-secondary small">Orthopedic Specialist</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col">
+                                                                            <button class="btn btn-sm btn-accent">
+                                                                                <i class="bi bi-plus"></i> <span>Select</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <p>
+                                                                                <i class="text-yellow align-middle bi bi-star"></i>
+                                                                                <small class="text-secondary">5.0 </small>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-280">
+                                                            <div class="card adminuiux-card border">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                                <img src="assets/img/modern-ai-image/user-2.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col mb-3">
+                                                                            <p class="h6 mb-1 ">
+                                                                                <span class="position-relative">Dr. Chin Chou
+                                                                                    <span class="position-absolute top-50 start-100 translate-middle p-1 bg-orange rounded-circle mx-2">
+                                                                                        <span class="visually-hidden">New alerts</span>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p class="text-secondary small">Expert Dentist</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col">
+                                                                            <button class="btn btn-sm btn-accent">
+                                                                                <i class="bi bi-plus"></i> <span>Select</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <p>
+                                                                                <i class="text-yellow align-middle bi bi-star"></i>
+                                                                                <small class="text-secondary">5.0 </small>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-280">
+                                                            <div class="card adminuiux-card bg-theme-1-space text-white border">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                                <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col mb-3">
+                                                                            <p class="h6 mb-1 ">Dr. Sundar Vishwas</p>
+                                                                            <p class="text-secondary small">General Expert</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col text-warning">
+                                                                            <button class="btn btn-sm btn-danger">
+                                                                                <i class="bi bi-dash"></i> <span>Deselect</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <p>
+                                                                                <i class="text-yellow align-middle bi bi-star"></i>
+                                                                                <small class="text-secondary">5.0 </small>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-280">
+                                                            <div class="card adminuiux-card border">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                                <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col mb-3">
+                                                                            <p class="h6 mb-1 ">Dr. Smita D'Souza</p>
+                                                                            <p class="text-secondary small">General Expert</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col">
+                                                                            <button class="btn btn-sm btn-accent">
+                                                                                <i class="bi bi-plus"></i> <span>Select</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <p>
+                                                                                <i class="text-yellow align-middle bi bi-star"></i>
+                                                                                <small class="text-secondary">5.0 </small>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-280">
+                                                            <div class="card adminuiux-card border">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                                <img src="assets/img/modern-ai-image/user-7.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col mb-3">
+                                                                            <p class="h6 mb-1 ">Dr. Alice</p>
+                                                                            <p class="text-secondary small">Skincare Specialist</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col">
+                                                                            <button class="btn btn-sm btn-accent">
+                                                                                <i class="bi bi-plus"></i> <span>Select</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <p>
+                                                                                <i class="text-yellow align-middle bi bi-star"></i>
+                                                                                <small class="text-secondary">5.0 </small>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Patient -->
+                                                <p class="h6 mb-3">Patient Details</p>
+                                                <div class="row align-items-center mb-4">
+                                                    <div class="col">
+                                                        <div class="input-group input-group-md search-wrap rounded w-100">
+                                                            <span class="input-group-text bg-none "><i data-feather="search"></i></span>
+                                                            <div class="form-floating">
+                                                                <input type="text" class="form-control" id="searchpatientname" placeholder="Search Patient" value="Alex">
+                                                                <label for="searchpatientname">Search Patient</label>
+                                                            </div>
+                                                            <span class="input-group-text bg-none ">
+                                                                <a class="btn btn-accent collapsed" data-bs-toggle="collapse" data-bs-target=".patinetcollapse" role="button" aria-expanded="false" aria-controls="addnewpatient">
+                                                                    <span class="collapse patinetcollapse show">New</span>
+                                                                    <span class="collapse patinetcollapse">Existing</span>
+                                                                    <span class="d-none d-md-inline-block">Patient</span>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- search result -->
+                                                <div class="row patinetcollapse collapse show" id="resultpatient">
+                                                    <div class="col-12 mb-3">
+                                                        <p>We have found 2 result to match search...</p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4">
+                                                        <div class="card adminuiux-card border">
+                                                            <div class="card-body">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="col-auto mb-3">
+                                                                        <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                            <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col mb-3">
+                                                                        <p class="h6 mb-1 ">
+                                                                            <span class="position-relative">Alexa John
+                                                                                <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                                                                    <span class="visually-hidden">online</span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </p>
+                                                                        <p class="opacity-75 small mb-2">United States</p>
+                                                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Revisit</span>
+                                                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1">VIP</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-accent">
+                                                                            <i class="me-1" data-feather="plus"></i><span>Select</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="col text-end">
+                                                                        <p class="opacity-75 small mb-0">Last Visit</p>
+                                                                        <p class="small">26 July 2024</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4">
+                                                        <div class="card adminuiux-card bg-theme-1 border">
+                                                            <div class="card-body">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="col-auto mb-3">
+                                                                        <div class="avatar avatar-40 rounded-circle coverimg mb-3">
+                                                                            <img src="assets/img/modern-ai-image/user-8.jpg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col mb-3">
+                                                                        <p class="h6 mb-1 ">
+                                                                            <span class="position-relative">Alex Smith
+                                                                                <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                                                                    <span class="visually-hidden">online</span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </p>
+                                                                        <p class="opacity-75 small mb-2">London, UK</p>
+                                                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1">Revisit</span>
+                                                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1">VIP</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-danger">
+                                                                            <i class="me-1 bi bi-dash"></i><span>Deselect</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="col text-end">
+                                                                        <p class="opacity-75 small mb-0">Last Visit</p>
+                                                                        <p class="small">26 July 2024</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- new patient collapse-->
+                                                <div class="collapse patinetcollapse" id="addnewpatient">
+                                                    <!-- Details -->
+                                                    <p class="h6 mb-3">New Patient Details</p>
+                                                    <div class="row mb-1">
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="patientname" placeholder="Enter Patient First Name" value="Alex">
+                                                                <label for="patientname">Patient First Name</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="patientmlname" placeholder="Enter Patient Middle Name">
+                                                                <label for="patientmlname">Patient Middle Name (Optional)</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="patientlname" placeholder="Enter Patient Last Name" value="Smith">
+                                                                <label for="patientlname">Patient Last Name</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="dobdate" placeholder="Select Birthday">
+                                                                <label for="dobdate">Select Birthday</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="phoneon" placeholder="Enter phone" value="+91 4152 21A45488004">
+                                                                <label for="phoneon">Enter Phone</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="email" class="form-control" id="emailaddresson" placeholder="Enter Email Address" value="alex.smith@tgmail.com">
+                                                                <label for="emailaddresson">Email Address</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Address -->
+                                                    <p class="h6 mb-3">New Patient Address</p>
+                                                    <div class="row mb-1">
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="house" placeholder="Enter house number" value="12">
+                                                                <label for="house">House Number</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="street" placeholder="Enter Street" value="Featherstone Street">
+                                                                <label for="street">Street</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="locality" placeholder="Enter locality" value="Ward">
+                                                                <label for="locality">Locality</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="town" placeholder="Enter Town" value="London">
+                                                                <label for="town">Town</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="city" placeholder="Enter City" value="London">
+                                                                <label for="city">City</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="postcode" placeholder="Enter Postcode" value="NG25 5AY">
+                                                                <label for="postcode">Postcode</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 col-xl-4">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="country" placeholder="Enter Country" value="United Kingdom">
+                                                                <label for="country">Country</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Select service -->
+                                                <p class="h6 mb-3">Consultation</p>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-4">
+                                                            <select class="form-select" id="service">
+                                                                <option>Follow up</option>
+                                                                <option>Offline Consultation</option>
+                                                                <option>Online Consultation</option>
+                                                                <option>Surgery</option>
+                                                            </select>
+                                                            <label for="service">Select Service</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Describe health issue -->
+                                                <p class="h6 mb-3">Describe health issue</p>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" id="healthissue" placeholder="Health Issue in few words">
+                                                            <label for="healthissue">Health Issue in few words</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-xl-4 col-xxl-3">
+                                        <div class="row">
+                                            <!-- inline calendar -->
+                                            <div class="col-12 col-sm-6 col-xl-12 mb-4">
+                                                <p class="h6 mb-3">Select Date</p>
+                                                <div class="inlinewrap1 inline-calendar mx-auto"></div>
+                                                <input type="text" id="inlinewrap1" class="d-none">
+                                            </div>
+                                            <!-- appointment timings -->
+                                            <div class="col-12 col-sm-6 col-xl-12 mb-4">
+                                                <p class="h6 mb-3">Select Time</p>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1 active">
+                                                    <span>11:00 AM</span>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>11:30 AM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>12:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>12:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>1:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>1:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>2:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>2:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>3:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>3:30 PM</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-success text-darkmb-3">
+                                    <p>Appointment with <span class="fw-medium">Dr. Sundar Viswas</span> will be scheduled on <span class="fw-medium">26 July 2024 : 11:00 AM</span></p>
+                                </div>
+
+                                <!-- save and cancel buttons -->
+                                <div class="mb-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button class="btn btn-accent my-2"><i class="bi bi-floppy me-2"></i> Book</button>
+                                            <button class="btn btn-outline-accent my-2 mx-2">Save as draft</button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-link my-2" data-bs-toggle="modal" data-bs-target="#modalcancel">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/clinic-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+                        <script src="assets/js/clinic/clinic-add-appointment.js"></script>
+
+
+    </body>
+
+</html>

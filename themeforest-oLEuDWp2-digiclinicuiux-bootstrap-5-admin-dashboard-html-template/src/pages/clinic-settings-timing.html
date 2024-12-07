@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur">
+    <!-- page loader -->
+    <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+      <!-- page header -->
+      <%= require('../partials/header/clinic-header.html').default %>
+
+        <!-- page wrapper -->
+        <div class="adminuiux-wrap">
+
+          <!-- Standard sidebar -->
+          <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb -->
+              <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                  <div class="row gx-3 align-items-center">
+                    <div class="col col-sm mb-2 mb-sm-0">
+                      <p class="h5">Settings</p>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                          <li class="breadcrumb-item bi"><a href="clinic-settings.html">Settings</a></li>
+                          <li class="breadcrumb-item active bi" aria-current="page">Timing</li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- content -->
+              <div class="container mt-4" id="main-content">
+
+                <div class="row">
+                  <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                    <div class="position-sticky" style="top:5.5rem">
+                      <ul class="nav nav-pills adminuiux-nav-pills flex-column mb-4">
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="clinic-settings.html">
+                            <div class="avatar avatar-28 icon"><i data-feather="user"></i></div>
+                            <div class="col">
+                              <p class="h6 mb-0">My Profile</p>
+                              <p class="small opacity-75">Basic Details</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="clinic-settings-hospitals.html">
+                            <div class="avatar avatar-28 icon"><i class="bi bi-hospital fs-4"></i></div>
+                            <div class="col">
+                              <p class="h6 mb-0">Hospital/Clinic</p>
+                              <p class="small opacity-75">Location, Address</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="clinic-settings-users.html">
+                            <div class="avatar avatar-28 icon"><i class="bi bi-people fs-4"></i></div>
+                            <div class="col">
+                              <p class="h6 mb-0">Users</p>
+                              <p class="small opacity-75">Roles, Permission, Access</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="clinic-settings-timing.html">
+                            <div class="avatar avatar-28 icon"><i data-feather="clock"></i></div>
+                            <div class="col">
+                              <p class="h6 mb-0">Timing</p>
+                              <p class="small opacity-75">Business hours, Emergency</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="clinic-settings-payment.html">
+                            <div class="avatar avatar-28 icon"><i class="bi bi-cash-stack fs-4"></i></div>
+                            <div class="col">
+                              <p class="h6 mb-0">Payment</p>
+                              <p class="small opacity-75">Online, Devices, Cash</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="clinic-settings-contact.html">
+                            <div class="avatar avatar-28 icon"><i class="bi bi-life-preserver"></i></div>
+                            <div class="col">
+                              <p class="h6 mb-0">Contact</p>
+                              <p class="small opacity-75">Support, Call, Chat, email</p>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card adminuiux-card mb-4" data-bs-target="#navbarpill" data-bs-spy="scroll">
+                      <div class="card-body py-0">
+
+                        <div class="position-sticky bg-card py-3 mb-0 z-index-7 header-pt mb-3" id="navbarpill">
+                          <ul class="nav nav-pills">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#scrollspayone">Location 1</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#scrollspaytwo">Location 2</a>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div class="" id="scrollspayone" style="scroll-margin: 150px;">
+                          <p class="h6 mb-3"><i class="bi bi-hospital fs-4 me-2 align-middle"></i> Location 1 timing</p>
+                          <div class="card adminuiux-card border mb-4">
+                            <nav>
+                              <div class="nav nav-tabs adminuiux-tabs" id="nav-tab-loc-1" role="tablist">
+                                <button class="nav-link active" id="nav-hospital-tab-loc-1" data-bs-toggle="tab" data-bs-target="#nav-hospital-loc-1" type="button" role="tab" aria-controls="nav-hospital-loc-1" aria-selected="true">Hospital</button>
+                                <button class="nav-link" id="nav-doctor-tab-loc-1" data-bs-toggle="tab" data-bs-target="#nav-doctor-loc-1" type="button" role="tab" aria-controls="nav-doctor-loc-1" aria-selected="false">Doctor</button>
+                                <button class="nav-link" id="nav-staff-tab-loc-1" data-bs-toggle="tab" data-bs-target="#nav-staff-loc-1" type="button" role="tab" aria-controls="nav-staff-loc-1" aria-selected="false">Staff</button>
+                              </div>
+                            </nav>
+                            <div class="card-body">
+                              <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-hospital-loc-1" role="tabpanel" aria-labelledby="nav-hospital-tab-loc-1" tabindex="0">
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Monday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="monday">
+                                        <label class="form-check-label" for="monday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6  mb-3">Tuesday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="tuesday">
+                                        <label class="form-check-label" for="tuesday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Wednesday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="wednesday">
+                                        <label class="form-check-label" for="wednesday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Thursday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="thursday">
+                                        <label class="form-check-label" for="thursday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Friday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="friday">
+                                        <label class="form-check-label" for="friday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Saturday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="saturday" checked>
+                                        <label class="form-check-label" for="saturday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating opacity-50 mb-3">
+                                        <input type="time" value="09:00" class="form-control" disabled>
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating opacity-50 mb-3">
+                                        <input type="time" value="20:00" class="form-control" disabled>
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <button class="btn btn-link mb-3" disabled><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Sunday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="sunday">
+                                        <label class="form-check-label" for="sunday">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-doctor-loc-1" role="tabpanel" aria-labelledby="nav-doctor-tab-loc-1" tabindex="0">...</div>
+                                <div class="tab-pane fade" id="nav-staff-loc-1" role="tabpanel" aria-labelledby="nav-staff-tab-loc-1" tabindex="0">...</div>
+                              </div>
+
+                              <hr class="mt-0">
+                              <p class="title h6 mb-3">Emergency Service</p>
+                              <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="profileswitch1" checked="">
+                                    <label class="form-check-label" for="profileswitch1">24x7 Availability</label>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="profileswitch4">
+                                    <label class="form-check-label" for="profileswitch4">24x7 Helpline on</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="" id="scrollspaytwo" style="scroll-margin: 150px;">
+                          <p class="h6 mb-3"><i class="bi bi-hospital fs-4 me-2 align-middle"></i> Location 2 timing</p>
+                          <div class="card adminuiux-card border mb-4">
+                            <nav>
+                              <div class="nav nav-tabs adminuiux-tabs" id="nav-tab-loc-2" role="tablist">
+                                <button class="nav-link active" id="nav-hospital-tab-loc-2" data-bs-toggle="tab" data-bs-target="#nav-hospital-loc-2" type="button" role="tab" aria-controls="nav-hospital-loc-2" aria-selected="true">Hospital</button>
+                                <button class="nav-link" id="nav-doctor-tab-loc-2" data-bs-toggle="tab" data-bs-target="#nav-doctor-loc-2" type="button" role="tab" aria-controls="nav-doctor-loc-2" aria-selected="false">Doctor</button>
+                                <button class="nav-link" id="nav-staff-tab-loc-2" data-bs-toggle="tab" data-bs-target="#nav-staff-loc-2" type="button" role="tab" aria-controls="nav-staff-loc-2" aria-selected="false">Staff</button>
+                              </div>
+                            </nav>
+                            <div class="card-body">
+                              <div class="tab-content" id="nav-tabContent-2">
+                                <div class="tab-pane fade show active" id="nav-hospital-loc-2" role="tabpanel" aria-labelledby="nav-hospital-tab-loc-2" tabindex="0">
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Monday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="monday2">
+                                        <label class="form-check-label" for="monday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6  mb-3">Tuesday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="tuesday2">
+                                        <label class="form-check-label" for="tuesday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Wednesday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="wednesday2">
+                                        <label class="form-check-label" for="wednesday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Thursday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="thursday2">
+                                        <label class="form-check-label" for="thursday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Friday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="friday2">
+                                        <label class="form-check-label" for="friday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Saturday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="saturday2" checked>
+                                        <label class="form-check-label" for="saturday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating opacity-50 mb-3">
+                                        <input type="time" value="09:00" class="form-control" disabled>
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating opacity-50 mb-3">
+                                        <input type="time" value="20:00" class="form-control" disabled>
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <button class="btn btn-link mb-3" disabled><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mb-2">
+                                    <div class="col-6 col-md-3 col-xl-2 pt-3">
+                                      <p class="h6 mb-3">Sunday</p>
+                                    </div>
+                                    <div class="col-auto pt-3">
+                                      <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" id="sunday2">
+                                        <label class="form-check-label" for="sunday2">Full Day</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="09:00" class="form-control">
+                                        <label>Start Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto">
+                                      <div class="form-floating mb-3">
+                                        <input type="time" value="20:00" class="form-control">
+                                        <label>End Time</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto pt-2">
+                                      <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-doctor-loc-2" role="tabpanel" aria-labelledby="nav-doctor-tab-loc-2" tabindex="0">...</div>
+                                <div class="tab-pane fade" id="nav-staff-loc-2" role="tabpanel" aria-labelledby="nav-staff-tab-loc-2" tabindex="0">
+                                  ...</div>
+                              </div>
+
+                              <hr class="mt-0">
+                              <p class="title h6 mb-3">Emergency Service</p>
+                              <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="profileswitch2" checked="">
+                                    <label class="form-check-label" for="profileswitch2">24x7 Availability</label>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="profileswitch5">
+                                    <label class="form-check-label" for="profileswitch5">24x7 Helpline on</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row">
+                          <div class="col">
+                            <button class="btn btn-theme">Save</button>
+                          </div>
+                          <div class="col-auto">
+                            <button class="btn btn-link">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+
+        <!-- page footer -->
+        <%= require('../partials/footer/clinic-footer.html').default %>
+          <%= require('../partials/offcanvas/theming.html').default %>
+
+            <!-- Page Level js -->
+
+
+  </body>
+
+</html>

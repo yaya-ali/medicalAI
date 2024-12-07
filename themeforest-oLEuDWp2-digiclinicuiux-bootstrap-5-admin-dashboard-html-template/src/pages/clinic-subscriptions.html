@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur">
+    <!-- page loader -->
+    <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+      <!-- page header -->
+      <%= require('../partials/header/clinic-header.html').default %>
+
+        <!-- page wrapper -->
+        <div class="adminuiux-wrap">
+
+          <!-- Standard sidebar -->
+          <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb  -->
+              <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                  <div class="row gx-3 align-items-center">
+                    <div class="col-12 col-md mb-2 mb-sm-0">
+                      <p class="h5">Subscription Plans</p>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                          <li class="breadcrumb-item active bi" aria-current="page">Subscription Plans</li>
+                        </ol>
+                      </nav>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- content -->
+              <div class="container mt-4" id="main-content">
+                <div class="card adminuiux-card text-center mb-4">
+                  <div class="row gx-0">
+                    <div class="col-12 col-lg">
+                      <div class="card-body">
+                        <p class="h6">Do more pay less with annual plan</p>
+                        <h1>Best plans for your need</h1>
+                        <p class="text-secondary">For customized services please contact us from <a href="clinic-contact.html">customer service</a></p>
+                        <div class="text-center">
+                          <div class="form-check form-switch mx-auto w-auto d-inline-block mb-4">
+                            <input class="form-check-input" type="checkbox" role="switch" id="payannual" checked="">
+                            <label class="form-check-label" for="payannual">Save 10% with annual plan</label>
+                          </div>
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table table-bordered mb-0">
+                            <thead>
+                              <tr>
+                                <th class="text-start align-middle">
+                                  <p class="h6">Whats included?</p>
+                                </th>
+                                <th class="text-center selected">
+                                  <p class="h4">$50.00</p>
+                                  <p class="text-secondary fw-normal">Personal</p>
+                                </th>
+                                <th class="text-center">
+                                  <p class="h4">$100.00</p>
+                                  <p class="text-secondary fw-normal">Pro</p>
+                                </th>
+                                <th class="text-center">
+                                  <p class="h4">$150.00</p>
+                                  <p class="text-secondary fw-normal">Ultra Pro</p>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-start vm text-secondary">
+                                  Unlimited domain
+                                </td>
+                                <td class="selected">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-start vm text-secondary">
+                                  Firewall setup
+                                </td>
+                                <td class="selected">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-start vm text-secondary">
+                                  React support
+                                </td>
+                                <td class="selected"></td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-start vm text-secondary">
+                                  Angular Starter Kit
+                                </td>
+                                <td class="selected"></td>
+                                <td class=""></td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-start vm text-secondary">
+                                  Laravel Starter Kit
+                                </td>
+                                <td class="selected"></td>
+                                <td class=""></td>
+                                <td class="">
+                                  <i class="text-success bi bi-check-circle h5"></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-start vm border-0 pt-3">
+
+                                </td>
+                                <td class="border-0 pt-3 selected">
+                                  <button class="btn btn-theme">Get Started</button>
+                                </td>
+                                <td class="border-0 pt-3">
+                                  <button class="btn btn-outline-accent">Get Started</button>
+                                </td>
+                                <td class="border-0 pt-3">
+                                  <button class="btn btn-outline-accent">Get Started</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-lg-4 mnh-250 position-relative overflow-hidden">
+                      <div class="coverimg h-100 w-100 position-absolute start-0 top-0">
+                        <img src="assets/img/modern-ai-image/flamingo-2.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+
+        <!-- page footer -->
+        <%= require('../partials/footer/clinic-footer.html').default %>
+          <%= require('../partials/offcanvas/theming.html').default %>
+
+            <!-- Page Level js -->
+
+
+  </body>
+
+</html>

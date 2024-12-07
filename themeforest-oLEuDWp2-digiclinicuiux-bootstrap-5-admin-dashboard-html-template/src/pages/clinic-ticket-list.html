@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur">
+    <!-- page loader -->
+    <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+      <!-- page header -->
+      <%= require('../partials/header/clinic-header.html').default %>
+
+        <!-- page wrapper -->
+        <div class="adminuiux-wrap">
+
+          <!-- Standard sidebar -->
+          <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb  -->
+              <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                  <div class="row gx-3 align-items-center">
+                    <div class="col col-sm mb-2 mb-sm-0">
+                      <p class="h5">Support Tickets</p>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                          <li class="breadcrumb-item bi"><a href="clinic-help-center.html">Help Center</a></li>
+                          <li class="breadcrumb-item active bi" aria-current="page">Support Tickets</li>
+                        </ol>
+                      </nav>
+                    </div>
+                    <div class="col-auto py-1 ms-auto">
+                      <a href="clinic-add-ticket.html" class="btn btn-theme">
+                        <i data-feather="plus" class="me-1"></i> Create Ticket
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="container mt-4" id="main-content">
+                <!-- summary -->
+                <div class="row">
+                  <!-- visitors  -->
+                  <div class="col-12 col-lg-6 col-xxl-3 mb-4">
+                    <div class="card adminuiux-card">
+                      <div class="card-body">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <div class="avatar avatar-50 text-center rounded bg-success-subtle text-success-emphasis">
+                              <i class="bi bi-megaphone fs-4"></i>
+                            </div>
+                          </div>
+                          <div class="col px-0">
+                            <p class="h4 mb-0">100+ <small>million</small></p>
+                            <p class="text-secondary small">Monthly visitors</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- queries resolved -->
+                  <div class="col-12 col-lg-6 col-xxl-3 mb-4">
+                    <div class="card adminuiux-card">
+                      <div class="card-body">
+                        <div class="row gx-3 align-items-center">
+                          <div class="col-auto">
+                            <div class="avatar avatar-50 text-center rounded bg-info-subtle text-info-emphasis">
+                              <i class="bi bi-hospital fs-4"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h4 mb-0">45.1+ <small>billion</small></p>
+                            <p class="text-secondary small">Queries Resolved</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- roi -->
+                  <div class="col-12 col-lg-6 col-xxl-3 mb-4">
+                    <div class="card adminuiux-card h-100">
+                      <div class="card-body">
+                        <div class="row gx-3 align-items-center">
+                          <div class="col-auto">
+                            <div class="avatar avatar-50 text-center rounded bg-warning-subtle text-warning-emphasis">
+                              <i class="bi bi-bank fs-4"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h4 mb-0">101% <small>ROI</small></p>
+                            <p class="text-secondary small">Premium Customer</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- new features -->
+                  <div class="col-12 col-lg-6 col-xxl-3 mb-4">
+                    <div class="card adminuiux-card">
+                      <div class="card-body">
+                        <div class="row gx-3 align-items-center">
+                          <div class="col-auto">
+                            <div class="avatar avatar-50 text-center rounded bg-primary-subtle text-primary-emphasis">
+                              <i class="bi bi-calendar-week fs-4"></i>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="h4 mb-0">100</p>
+                            <p class="text-secondary small">New feature per month</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Banner title -->
+                <div class="card adminuiux-card bg-theme-1 position-relative mb-4">
+                  <div class="coverimg top-0 start-0 h-100 w-100 position-absolute rounded opacity-25">
+                    <img src="assets/img/modern-ai-image/modern-bg-1.jpg" alt="">
+                  </div>
+                  <div class="card-body py-5 z-index-1">
+                    <div class="row justify-content-center py-3">
+                      <div class="col-11 col-md-11 col-lg-10 col-xl-9 col-xxl-6 text-center position-relative z-index-1">
+                        <h1>The Place to find The right answers of your questions.</h1>
+                        <p class="h6 fw-normal mb-3 mb-lg-4">Ask questions, Build network, Connect with same tastes people, share your
+                          ideas and help other people by helping, votes and give advices.</p>
+                        <!-- search -->
+                        <div class="input-group input-group-lg shadow">
+                          <span class="input-group-text text-theme"><i class="bi bi-search"></i></span>
+                          <input class="form-control" type="search" placeholder="Search your query here...">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- title filter -->
+                <div class="row align-items-center mb-4">
+                  <div class="col">
+                    <p class="h6">225 questions</p>
+                  </div>
+                  <div class="col-auto">
+                    <span class="me-2">Sort by:</span>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Filter toggle">
+                      <input type="radio" name="filterbox" class="btn-check" id="btncheck1filter" checked="">
+                      <label class="btn btn-outline-accent" for="btncheck1filter">Newest</label>
+
+                      <input type="radio" name="filterbox" class="btn-check" id="btncheck2filter">
+                      <label class="btn btn-outline-accent" for="btncheck2filter">Active</label>
+
+                      <input type="radio" name="filterbox" class="btn-check" id="btncheck3filter">
+                      <label class="btn btn-outline-accent" for="btncheck3filter">Unanswered</label>
+
+                      <input type="radio" name="filterbox" class="btn-check" id="btncheck4filter">
+                      <label class="btn btn-outline-accent" for="btncheck4filter">Top Rated</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ticket content -->
+                <div class="row mb-4">
+                  <div class="col-12 col-md-8">
+
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-3">
+                          <div class="col">
+                            <p class="h5">
+                              <a href="" class="style-none text-theme-accent-1">How to create admin dashboard for Clinic and
+                                Finance </a>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <div class="dropdown">
+                              <button class="btn btn-link btn-square text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical vm"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end" style="">
+                                <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                <li><a class="dropdown-item" href="#">Report</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row align-items-center mb-3">
+                          <div class="col-auto">
+                            <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                              <img src="assets/img/modern-ai-image/user-4.jpg" alt="" style="display: none;">
+                            </figure>
+                          </div>
+                          <div class="col px-0">
+                            <p class="small text-secondary mb-0">Asked by</p>
+                            <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                          </div>
+                          <div class="col-auto">
+                            <span class="badge badge-light bg-success text-white">Answered</span>
+                            <span class="badge badge-light bg-danger-subtle text-danger-emphasis">Closed</span>
+                          </div>
+                        </div>
+                        <p class="text-secondary">You can easily find template for UI with best customize facility named
+                          "Get Adminuiux". Adminuiux just right template for all your need flexible, adoptable and elastic bootstrap
+                          based HTML template. everWhen you get older many
+                          people will listen you carefully, no matter if its correct discussion or not.</p>
+                        <p>
+                          <span class="badge badge-light bg-pink-subtle text-pink-emphasis me-1 mt-1">User Interface</span>
+                          <span class="badge badge-light bg-orange-subtle text-orange-emphasis me-1 mt-1">User Experience</span>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <div class="btn btn-square btn-outline-danger rounded-circle">
+                              <i class="bi bi-heart fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col-auto ps-0">
+                            <p class="text-secondary small mb-0">Liked by</p>
+                            <p class="h6">1.2k</p>
+                          </div>
+                          <div class="col-auto d-none d-lg-block">
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img//modern-ai-image/user-5.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-7.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                            </div>
+                          </div>
+                          <div class="col ps-0 d-none d-lg-block">
+                            <p class="text-secondary small mb-0">Answered by</p>
+                            <p class="h6">9+</p>
+                          </div>
+                          <div class="col-auto text-center ms-auto">
+                            <p class="small text-secondary mb-0">Views</p>
+                            <p class="mb-0 h6">152</p>
+                          </div>
+                          <div class="col-auto text-center d-none d-sm-block">
+                            <p class="small text-secondary mb-0">Watching</p>
+                            <p class="mb-0 h6">256</p>
+                          </div>
+                          <div class="col-auto">
+                            <a class="btn btn-accent show" data-bs-toggle="collapse" href="#comment1" aria-expanded="true" aria-controls="comment1">Answer</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse show" id="comment1">
+                        <div class="card-body border-top">
+                          <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a answer here"></textarea>
+                            <label>Answer</label>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="col">
+                              <button class="btn btn-theme">Submit</button>
+                            </div>
+                            <div class="col-auto"><a class="btn btn-link" data-bs-toggle="collapse" href="#comment1" aria-expanded="false" aria-controls="comment1">Cancel</a>
+                            </div>
+                          </div>
+                          <hr>
+                          <!-- answer per user -->
+                          <div class="card adminuiux-card bg-success-subtle mb-1">
+                            <div class="card-body">
+                              <div class="row">
+                                <a href="" class="col-auto">
+                                  <figure class="avatar avatar-40 coverimg rounded-circle">
+                                    <img src="assets/img/modern-ai-image/user-1.jpg" alt="">
+                                  </figure>
+                                </a>
+                                <div class="col ps-0">
+                                  <p>
+                                    <a href="" class="style-none">Jack Lee</a><br>
+                                    <span class="text-secondary d-inline-block small">2 min ago</span>
+                                  </p>
+                                  <p class="mb-0"><span class="badge badge-light bg-success text-white">Correct Answer</span></p>
+                                  <p class="text-secondary">I found a solution to your problem. <br>
+                                    The installer works fine once I removed it out of my cluttered download folder<br>
+                                    I ran various tests and I'm pretty sure that i found the root to the problem.<br>
+                                    You can easily find template for UI with best customize facility named "GetAdminuiux". Adminuiux
+                                    just
+                                    right template for all your need flexible, adoptable and elastic bootstrap based HTML template.
+                                    ever When you get older many people will listen you carefully, no matter if its correct discussion
+                                    or
+                                    not.
+                                  </p>
+                                </div>
+                                <div class="col-auto">
+                                  <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="bi bi-three-dots-vertical vm"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="">
+                                      <li><a class="dropdown-item" href="#">Mark as Correct</a></li>
+                                      <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                      <li><a class="dropdown-item" href="#">Report</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- answer per user -->
+                          <div class="card adminuiux-card mb-1">
+                            <div class="card-body">
+                              <div class="row">
+                                <a href="" class="col-auto">
+                                  <figure class="avatar avatar-40 coverimg rounded-circle">
+                                    <img src="assets/img/modern-ai-image/user-2.jpg" alt="">
+                                  </figure>
+                                </a>
+                                <div class="col ps-0">
+                                  <p>
+                                    <a href="" class="style-none">Silva D'souza</a><br>
+                                    <span class="text-secondary d-inline-block small">5 min ago</span>
+                                  </p>
+                                  <p class="text-secondary">I'll be back on this soon
+                                  </p>
+                                </div>
+                                <div class="col-auto">
+                                  <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="bi bi-three-dots-vertical vm"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="">
+                                      <li><a class="dropdown-item" href="#">Mark as Correct</a></li>
+                                      <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                      <li><a class="dropdown-item" href="#">Report</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-3">
+                          <div class="col">
+                            <p class="h5">
+                              <a href="" class="style-none text-theme-accent-1">Suggest best mobile and web app template, I feel
+                                adminuiux is best</a>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <div class="dropdown">
+                              <button class="btn btn-link btn-square text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical vm"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end" style="">
+                                <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                <li><a class="dropdown-item" href="#">Report</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row align-items-center mb-3">
+                          <div class="col-auto">
+                            <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                              <img src="assets/img/modern-ai-image/user-3.jpg" alt="" style="display: none;">
+                            </figure>
+                          </div>
+                          <div class="col px-0">
+                            <p class="small text-secondary mb-0">Asked by</p>
+                            <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                          </div>
+                        </div>
+                        <p class="text-secondary">You can easily find template for UI with best customize facility named
+                          "Get Adminuiux". Adminuiux just right template for all your need flexible, adoptable and elastic bootstrap
+                          based HTML template. everWhen you get older many
+                          people will listen you carefully, no matter if its correct discussion or not.</p>
+                        <p>
+                          <span class="badge badge-light bg-yellow-subtle text-yellow-emphasis me-1 mt-1">Help Request</span>
+                          <span class="badge badge-light bg-blue-subtle text-blue-emphasis me-1 mt-1">Latest</span>
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <div class="btn btn-square btn-outline-danger rounded-circle">
+                              <i class="bi bi-heart fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col-auto ps-0">
+                            <p class="text-secondary small mb-0">Liked by</p>
+                            <p class="h6">1.2k</p>
+                          </div>
+                          <div class="col-auto d-none d-lg-block">
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img//modern-ai-image/user-5.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-7.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                            </div>
+                          </div>
+                          <div class="col ps-0 d-none d-lg-block">
+                            <p class="text-secondary small mb-0">Answered by</p>
+                            <p class="h6">9+</p>
+                          </div>
+                          <div class="col-auto text-center ms-auto">
+                            <p class="small text-secondary mb-0">Views</p>
+                            <p class="mb-0 h6">152</p>
+                          </div>
+                          <div class="col-auto text-center d-none d-sm-block">
+                            <p class="small text-secondary mb-0">Watching</p>
+                            <p class="mb-0 h6">256</p>
+                          </div>
+                          <div class="col-auto">
+                            <a class="btn btn-theme" data-bs-toggle="collapse" href="#comment2" aria-expanded="false" aria-controls="comment1">Answer</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse" id="comment2">
+                        <div class="card-body">
+                          <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here"></textarea>
+                            <label>Comment</label>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <button class="btn btn-theme">Post</button>
+                            </div>
+                            <div class="col-auto"><a class="btn btn-link" data-bs-toggle="collapse" href="#comment2" aria-expanded="false" aria-controls="comment2">Cancel</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-3">
+                          <div class="col">
+                            <p class="h5">
+                              <a href="" class="style-none text-theme-accent-1">Create mobile restaurant app with adminuiux dashboard
+                                and mobile app HTML template</a>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <div class="dropdown">
+                              <button class="btn btn-link btn-square text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical vm"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end" style="">
+                                <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                <li><a class="dropdown-item" href="#">Report</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row align-items-center mb-3">
+                          <div class="col-auto">
+                            <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                              <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                            </figure>
+                          </div>
+                          <div class="col px-0">
+                            <p class="small text-secondary mb-0">Asked by</p>
+                            <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                          </div>
+                        </div>
+                        <p class="text-secondary">You can easily find template for UI with best customize facility named
+                          "Get Adminuiux". Adminuiux just right template for all your need flexible, adoptable and elastic bootstrap
+                          based HTML template. everWhen you get older many
+                          people will listen you carefully, no matter if its correct discussion or not.</p>
+                        <p>
+                          <span class="badge badge-light bg-pink-subtle text-pink-emphasis me-1 mt-1">Support</span>
+                          <span class="badge badge-light bg-orange-subtle text-orange-emphasis me-1 mt-1">Development</span>
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <div class="btn btn-square btn-outline-danger rounded-circle">
+                              <i class="bi bi-heart fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col-auto ps-0">
+                            <p class="text-secondary small mb-0">Liked by</p>
+                            <p class="h6">1.2k</p>
+                          </div>
+                          <div class="col-auto d-none d-lg-block">
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img//modern-ai-image/user-5.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-7.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                            </div>
+                          </div>
+                          <div class="col ps-0 d-none d-lg-block">
+                            <p class="text-secondary small mb-0">Answered by</p>
+                            <p class="h6">9+</p>
+                          </div>
+                          <div class="col-auto text-center ms-auto">
+                            <p class="small text-secondary mb-0">Views</p>
+                            <p class="mb-0 h6">152</p>
+                          </div>
+                          <div class="col-auto text-center d-none d-sm-block">
+                            <p class="small text-secondary mb-0">Watching</p>
+                            <p class="mb-0 h6">256</p>
+                          </div>
+                          <div class="col-auto">
+                            <a class="btn btn-theme" data-bs-toggle="collapse" href="#comment1" aria-expanded="false" aria-controls="comment1">Answer</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse" id="comment3">
+                        <div class="card-body">
+                          <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here"></textarea>
+                            <label>Comment</label>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <button class="btn btn-theme">Post</button>
+                            </div>
+                            <div class="col-auto"><a class="btn btn-link" data-bs-toggle="collapse" href="#comment3" aria-expanded="false" aria-controls="comment3">Cancel</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-3">
+                          <div class="col">
+                            <p class="h5">
+                              <a href="" class="style-none text-theme-accent-1">Best class design and extensible UI template Bootstrap
+                                HTML Admin ui ux
+                                is best </a>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <div class="dropdown">
+                              <button class="btn btn-link btn-square text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical vm"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end" style="">
+                                <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                <li><a class="dropdown-item" href="#">Report</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row align-items-center mb-3">
+                          <div class="col-auto">
+                            <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                              <img src="assets/img/modern-ai-image/user-1.jpg" alt="" style="display: none;">
+                            </figure>
+                          </div>
+                          <div class="col px-0">
+                            <p class="small text-secondary mb-0">Asked by</p>
+                            <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                          </div>
+                        </div>
+                        <p class="text-secondary">You can easily find template for UI with best customize facility named
+                          "Get Adminuiux". Adminuiux just right template for all your need flexible, adoptable and elastic bootstrap
+                          based HTML template. everWhen you get older many
+                          people will listen you carefully, no matter if its correct discussion or not.</p>
+                        <p>
+                          <span class="badge badge-light bg-purple-subtle text-purple-emphasis me-1 mt-1">Creative</span>
+                          <span class="badge badge-light bg-teal-subtle text-teal-emphasis me-1 mt-1">Unique Ideas</span>
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <div class="btn btn-square btn-outline-danger rounded-circle">
+                              <i class="bi bi-heart fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col-auto ps-0">
+                            <p class="text-secondary small mb-0">Liked by</p>
+                            <p class="h6">1.2k</p>
+                          </div>
+                          <div class="col-auto d-none d-lg-block">
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img//modern-ai-image/user-5.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-7.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                            </div>
+                          </div>
+                          <div class="col ps-0 d-none d-lg-block">
+                            <p class="text-secondary small mb-0">Answered by</p>
+                            <p class="h6">9+</p>
+                          </div>
+                          <div class="col-auto text-center ms-auto">
+                            <p class="small text-secondary mb-0">Views</p>
+                            <p class="mb-0 h6">152</p>
+                          </div>
+                          <div class="col-auto text-center d-none d-sm-block">
+                            <p class="small text-secondary mb-0">Watching</p>
+                            <p class="mb-0 h6">256</p>
+                          </div>
+                          <div class="col-auto">
+                            <a class="btn btn-theme" data-bs-toggle="collapse" href="#comment1" aria-expanded="false" aria-controls="comment1">Answer</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse" id="comment4">
+                        <div class="card-body">
+                          <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here"></textarea>
+                            <label>Comment</label>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <button class="btn btn-theme">Post</button>
+                            </div>
+                            <div class="col-auto"><a class="btn btn-link" data-bs-toggle="collapse" href="#comment4" aria-expanded="false" aria-controls="comment4">Cancel</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card adminuiux-card mb-4">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-3">
+                          <div class="col">
+                            <p class="h5">
+                              <a href="" class="style-none text-theme-accent-1">How to create admin dashboard for Clinic and
+                                Finance</a>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <div class="dropdown">
+                              <button class="btn btn-link btn-square text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical vm"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end" style="">
+                                <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                <li><a class="dropdown-item" href="#">Report</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row align-items-center mb-3">
+                          <div class="col-auto">
+                            <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                              <img src="assets/img/modern-ai-image/user-4.jpg" alt="" style="display: none;">
+                            </figure>
+                          </div>
+                          <div class="col px-0">
+                            <p class="small text-secondary mb-0">Asked by</p>
+                            <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                          </div>
+                        </div>
+                        <p class="text-secondary">You can easily find template for UI with best customize facility named
+                          "Get Adminuiux". Adminuiux just right template for all your need flexible, adoptable and elastic bootstrap
+                          based HTML template. everWhen you get older many
+                          people will listen you carefully, no matter if its correct discussion or not.</p>
+                        <p>
+                          <span class="badge badge-light bg-green-subtle text-green-emphasis me-1 mt-1">Support</span>
+                          <span class="badge badge-light bg-danger-subtle text-danger-emphasis me-1 mt-1">Development</span>
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <div class="btn btn-square btn-outline-danger rounded-circle">
+                              <i class="bi bi-heart fs-5"></i>
+                            </div>
+                          </div>
+                          <div class="col-auto ps-0">
+                            <p class="text-secondary small mb-0">Liked by</p>
+                            <p class="h6">1.2k</p>
+                          </div>
+                          <div class="col-auto d-none d-lg-block">
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img//modern-ai-image/user-5.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-7.jpg" alt="" style="display: none;">
+                            </div>
+                            <div class="avatar avatar-40 coverimg rounded-circle me-1">
+                              <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                            </div>
+                          </div>
+                          <div class="col ps-0 d-none d-lg-block">
+                            <p class="text-secondary small mb-0">Answered by</p>
+                            <p class="h6">9+</p>
+                          </div>
+                          <div class="col-auto text-center ms-auto">
+                            <p class="small text-secondary mb-0">Views</p>
+                            <p class="mb-0 h6">152</p>
+                          </div>
+                          <div class="col-auto text-center d-none d-sm-block">
+                            <p class="small text-secondary mb-0">Watching</p>
+                            <p class="mb-0 h6">256</p>
+                          </div>
+                          <div class="col-auto">
+                            <a class="btn btn-theme" data-bs-toggle="collapse" href="#comment1" aria-expanded="false" aria-controls="comment1">Answer</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse" id="comment5">
+                        <div class="card-body">
+                          <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here"></textarea>
+                            <label>Comment</label>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <button class="btn btn-theme">Post</button>
+                            </div>
+                            <div class="col-auto"><a class="btn btn-link" data-bs-toggle="collapse" href="#comment5" aria-expanded="false" aria-controls="comment5">Cancel</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- pagination -->
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <div class="position-sticky" style="top: 5.5rem;">
+
+                      <!-- top queries  -->
+                      <p class="h6 mb-3">Popular Questions</p>
+                      <p class="mb-4">
+                        <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">How we can do edits in index pages?</a>
+                        <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">Is this template comes with Laravel vue js?</a>
+                        <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">Is there angular development suggestions before
+                          starting work?</a>
+                        <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">How to reduce width of any boxes with
+                          responsiveness?</a>
+                        <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">How can you defined new color set ?</a>
+                        <a href="" class="badge badge-light text-bg-theme-accent-1 me-1 mb-1">What are the primary color set and what to keep in
+                          mind?</a>
+                      </p>
+
+                      <!-- top category queries-->
+                      <div class="card adminuiux-card mb-4">
+                        <div class="card-header">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <div class="avatar avatar-40 bg-theme-1-subtle text-theme-accent-1 rounded">
+                                <i class="bi bi-person-circle fs-5"></i>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <p class="h5">Login and Logout</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="list-group adminuiux-list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action">Login purpose </a>
+                            <a href="#" class="list-group-item list-group-item-action">What are the Login options?</a>
+                            <a href="#" class="list-group-item list-group-item-action">How to reset password?</a>
+                            <a href="#" class="list-group-item list-group-item-action">How to change password?</a>
+                            <a href="#" class="list-group-item list-group-item-action">Where from I can logout from?</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- offer -->
+                      <div class="card border-0 position-relative overflow-hidden mb-4">
+                        <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0 z-index-0">
+                          <img src="assets/img/modern-ai-image/modern-bg-3.jpg" class="mw-100" alt="" style="display: none;">
+                        </figure>
+                        <div class="card-body position-relative z-index-1">
+                          <div class="row">
+                            <div class="col-7">
+                              <div class="bg-theme-1 text-white text-center p-3 rounded">
+                                <h2 class="mb-2">20% <small>OFF</small></h2>
+                                <p class="h5">Holiday Season</p>
+                                <p class="opacity-75 small">Price including with our launch offer get 5% Extra</p>
+                                <button class="copy-text btn btn-sm btn-rounded btn-outline-dashed text-white border-white">GOSEASON</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </main>
+        </div>
+
+        <!-- page footer -->
+        <%= require('../partials/footer/clinic-footer.html').default %>
+          <%= require('../partials/offcanvas/theming.html').default %>
+
+            <!-- Page Level js -->
+
+
+  </body>
+
+</html>

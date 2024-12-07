@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur">
+    <!-- page loader -->
+    <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+      <!-- page header -->
+      <%= require('../partials/header/clinic-header.html').default %>
+
+        <!-- page wrapper -->
+        <div class="adminuiux-wrap">
+
+          <!-- Standard sidebar -->
+          <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb  -->
+              <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                  <div class="row gx-3 align-items-center">
+                    <div class="col col-sm mb-2 mb-sm-0">
+                      <p class="h5">About us</p>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item bi"><a href="clinic-dashboard.html">Home</a></li>
+                          <li class="breadcrumb-item bi"><a href="clinic-pages.html">Pages</a></li>
+                          <li class="breadcrumb-item active bi" aria-current="page">About us</li>
+                        </ol>
+                      </nav>
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- content -->
+              <div class="container mt-4" id="main-content">
+                <div class="card adminuiux-card mb-4">
+                  <div class="card-body pb-0">
+                    <div class="row">
+                      <div class="col-12 col-md-12 col-xl-7 px-xl-4">
+                        <p class="text-theme-1 mb-3">World class facilities and equipment</p>
+                        <h2>Pharmacy, Lab and Multi-specialist hospital</h2>
+                        <p class="h5 mb-4">You are at the best Adminuiux Digi Clinic HTML template demo preview</p>
+                        <p class="text-secondary">We create HTML templates for Enterprise applications, Business applications, eCommerce application, Admin Dashboard Applications, Mobile application, Mobile Websites, Micro websites, Cordova apps etc. Technology you can choose from our latest builds Bootstrap 5 HTML template, Framework7 templates, Angular 12 starter kits.</p>
+                        <div class="mb-4">
+                          <span class="badge badge-light rounded-pill text-bg-primary">Clinic</span>
+                          <span class="badge badge-light rounded-pill text-bg-theme-1 mx-1 mb-1">Medical</span>
+                          <span class="badge badge-light rounded-pill text-bg-theme-accent-1 mx-1 mb-1">Pharmacy</span>
+                          <span class="badge badge-light rounded-pill text-bg-success mx-1 mb-1">OPD</span>
+                          <span class="badge badge-light rounded-pill text-bg-danger mx-1 mb-1">Surgery</span>
+                        </div>
+                        <div class="row">
+                          <div class="col-12 col-md-5 col-lg-6 col-xxl-5 mb-4">
+                            <div class="card h-100">
+                              <div class="card-body">
+                                <div class="row mb-3">
+                                  <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded">
+                                      <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                    </figure>
+                                  </div>
+                                  <div class="col">
+                                    <p class="h6 mb-1">Alex Mozillia</p>
+                                    <p class="text-secondary">11 Years old </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <a href="clinic-view-patient.html" class="btn btn-link btn-square">
+                                      <i data-feather="arrow-up-right"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                                <p><span class="text-secondary">Observation: </span> <br>High fever and low cough.</p>
+                              </div>
+                              <div class="card-footer bg-none">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <i class="bi bi-calendar-week fs-4 text-secondary"></i>
+                                  </div>
+                                  <div class="col">
+                                    <p class="h6 mb-0">9:30 AM, Today</p>
+                                    <p class="text-secondary">2 minutes to go</p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <button type="button" class="btn btn-link text-success btn-square">
+                                      <i data-feather="phone"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-5 col-lg-6 col-xxl-5 mb-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <div class="text-center">
+                                  <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto" style="background-image: url(&quot;assets/img/modern-ai-image/user-8.jpg&quot;);">
+                                    <img src="assets/img/modern-ai-image/user-8.jpg" alt="" style="display: none;">
+                                  </div>
+                                  <p class="h5 mb-0">
+                                    <span class="position-relative">Dr. Ryan Sylia
+                                      <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                        <span class="visually-hidden">New alerts</span>
+                                      </span>
+                                    </span>
+                                  </p>
+                                  <p class="text-secondary small">Orthopedic Specialist</p>
+                                  <a class="badge badge-light rounded-pill text-bg-theme-1 mb-2 me-2"><i class="bi bi-envelope me-2"></i> Email</a>
+                                  <a class="badge badge-light rounded-pill text-bg-theme-accent-1 mb-2"><i class="bi bi-telephone me-2"></i> Phone</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-12 col-xl-5 text-center align-self-end">
+                        <img src="assets/img/clinic/clinic-doctor-login.png" alt="" class="maxwidth-300">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4 mb-4 text-center">
+                    <div class="card adminuiux-card">
+                      <div class="card-body">
+                        <i class="bi bi-bullseye h1 avatar avatar-80 bg-theme-1-subtle text-theme-1 rounded-circle mb-3 mb-md-4"></i>
+                        <p class="h4 mb-2 mb-md-3">Our Mission</p>
+                        <p class="text-secondary">Our mission is to provide great UI UX design with flexibility of development at the reliable cost. This will give you best by saving time and money. So, for our customer its all about the Win Win situation.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4 mb-4 text-center ">
+                    <div class="card adminuiux-card">
+                      <div class="card-body">
+                        <i class="bi bi-window-stack h1 avatar avatar-80 bg-theme-1-subtle text-theme-1 rounded-circle mb-3 mb-md-4"></i>
+                        <p class="h4 mb-2 mb-md-3">What we do</p>
+                        <p class="text-secondary">We do best creative and usable digital products for web and mobile devices, website and universal app development. We create unique, user centric, experience design and creative HTML templates.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4 mb-4 text-center ">
+                    <div class="card adminuiux-card">
+                      <div class="card-body">
+                        <i class="bi bi-cash-stack h1 avatar avatar-80 bg-theme-1-subtle text-theme-1 rounded-circle mb-3 mb-md-4"></i>
+                        <p class="h4 mb-2 mb-md-3">What you get</p>
+                        <p class="text-secondary">Using ready-to-use HTML templates can be a great way to save time & money when building a website. Templates created by professionals, ensuring a high-quality and visually appealing layout.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+
+        <!-- page footer -->
+        <%= require('../partials/footer/clinic-footer.html').default %>
+          <%= require('../partials/offcanvas/theming.html').default %>
+
+            <!-- Page Level js -->
+
+
+  </body>
+
+</html>

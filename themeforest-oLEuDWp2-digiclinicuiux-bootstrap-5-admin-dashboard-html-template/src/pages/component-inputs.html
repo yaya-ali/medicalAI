@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+            <%= require('../partials/header/index-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <main class="adminuiux-content" onclick="contentClick()">
+
+                        <!-- breadcrumb -->
+                        <div class="container-fluid mt-3">
+                            <div class="bg-theme-1-subtle rounded px-3 py-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm mb-2 mb-sm-0">
+                                        <p class="h5">Inputs</p>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb mb-0">
+                                                <li class="breadcrumb-item bi"><a href="investment-dashboard.html">App Demo</a></li>
+                                                <li class="breadcrumb-item bi"><a href="components.html">Components</a></li>
+                                                <li class="breadcrumb-item active bi" aria-current="page">Inputs</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                    <div class="col-auto ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content  -->
+                        <div class="container mt-4">
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Standard Inputs</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-outline-theme btn-square" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">
+                                                <i class="bi bi-code-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputPassword5" class="form-label">Password</label>
+                                        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                                        <div id="passwordHelpBlock" class="form-text">
+                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Default file input example</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleColorInput" class="form-label">Color picker</label>
+                                        <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleDataList" class="form-label">Datalist example</label>
+                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                        <datalist id="datalistOptions">
+                                            <option value="San Francisco">
+                                            <option value="New York">
+                                            <option value="Seattle">
+                                            <option value="Los Angeles">
+                                            <option value="Chicago">
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="collapse1">
+                                    <div class="card-footer border-top">
+                                        <div class="bg-dark text-white p-2 rounded my-2">
+                                            <pre class="mb-2"><code class="code rounded language-html">
+&lt;div class="mb-3"&gt;
+    &lt;label for="exampleFormControlInput1" class="form-label"&gt;Email address&lt;/label&gt;
+    &lt;input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"&gt;
+&lt;/div&gt;
+&lt;div class="mb-3"&gt;
+    &lt;label for="inputPassword5" class="form-label"&gt;Password&lt;/label&gt;
+    &lt;input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"&gt;
+    &lt;div id="passwordHelpBlock" class="form-text"&gt;
+        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mb-3"&gt;
+    &lt;label for="exampleFormControlTextarea1" class="form-label"&gt;Example textarea&lt;/label&gt;
+    &lt;textarea class="form-control" id="exampleFormControlTextarea1" rows="3"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;div class="mb-3"&gt;
+    &lt;label for="formFile" class="form-label"&gt;Default file input example&lt;/label&gt;
+    &lt;input class="form-control" type="file" id="formFile"&gt;
+&lt;/div&gt;
+&lt;div class="mb-3"&gt;
+    &lt;label for="exampleColorInput" class="form-label"&gt;Color picker&lt;/label&gt;
+    &lt;input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color"&gt;
+&lt;/div&gt;
+&lt;div class="mb-3"&gt;
+    &lt;label for="exampleDataList" class="form-label"&gt;Datalist example&lt;/label&gt;
+    &lt;input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."&gt;
+    &lt;datalist id="datalistOptions"&gt;
+        &lt;option value="San Francisco"&gt;
+        &lt;option value="New York"&gt;
+        &lt;option value="Seattle"&gt;
+        &lt;option value="Los Angeles"&gt;
+        &lt;option value="Chicago"&gt;
+    &lt;/datalist&gt;
+&lt;/div&gt;
+                    </code></pre>
+                                            <button type="button" class="btn btn-outline-light  btn-square copycode"><i class="bi bi-clipboard"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Sizes of Inputs</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-outline-theme btn-square" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false">
+                                                <i class="bi bi-code-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <input class="form-control form-control-lg mb-3" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+                                    <input class="form-control mb-3" type="text" placeholder="Default input" aria-label="default input example">
+                                    <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" aria-label=".form-control-sm example">
+                                </div>
+                                <div class="collapse" id="collapse2">
+                                    <div class="card-footer border-top">
+                                        <div class="bg-dark text-white p-2 rounded my-2">
+                                            <pre class="mb-2"><code class="code rounded language-html">
+&lt;input class="form-control form-control-lg mb-3" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example"&gt;
+&lt;input class="form-control mb-3" type="text" placeholder="Default input" aria-label="default input example"&gt;
+&lt;input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" aria-label=".form-control-sm example"&gt;
+                    </code></pre>
+                                            <button type="button" class="btn btn-outline-light  btn-square copycode"><i class="bi bi-clipboard"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Disabled and Readonly </p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-outline-theme btn-square" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false">
+                                                <i class="bi bi-code-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <input class="form-control mb-3" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+                                    <input class="form-control" type="text" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                                </div>
+                                <div class="collapse" id="collapse3">
+                                    <div class="card-footer border-top">
+                                        <div class="bg-dark text-white p-2 rounded my-2">
+                                            <pre class="mb-2"><code class="code rounded language-html">
+&lt;input class="form-control mb-3" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled&gt;
+&lt;input class="form-control" type="text" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly&gt;
+                    </code></pre>
+                                            <button type="button" class="btn btn-outline-light  btn-square copycode"><i class="bi bi-clipboard"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card adminuiux-card mb-4">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="h6">Password Strength </p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-outline-theme btn-square" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false">
+                                                <i class="bi bi-code-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="position-relative">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="checkstrength" placeholder="Enter your password">
+                                            <label for="checkstrength">Password</label>
+                                        </div>
+                                        <button class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 ">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="feedback mb-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="check-strength" id="checksterngthdisplay">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <span class="small" id="textpassword"></span>
+                                                <i class="bi bi-info-circle text-theme ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Password should contain atleast 1 capital, 1 alphanumeric & min. 8 characters"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="collapse" id="collapse4">
+                                    <div class="card-footer border-top">
+                                        <div class="bg-dark text-white p-2 rounded my-2">
+                                            <pre class="mb-2"><code class="code rounded language-html">
+&lt;div class="position-relative"&gt;
+    &lt;div class="form-floating mb-3"&gt;
+        &lt;input type="password" class="form-control" id="checkstrength" placeholder="Enter your password"&gt;
+        &lt;label for="checkstrength"&gt;Password&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 "&gt;
+        &lt;i class="bi bi-eye"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="feedback mb-3"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col"&gt;
+            &lt;div class="check-strength" id="checksterngthdisplay"&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-auto"&gt;
+            &lt;span class="small" id="textpassword"&gt;&lt;/span&gt;
+            &lt;i class="bi bi-info-circle text-theme ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Password should contain atleast 1 capital, 1 alphanumeric & min. 8 characters"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	/* this function already available in the function js */
+	checkstrength();
+ &lt;/script&gt;
+                    </code></pre>
+                                            <button type="button" class="btn btn-outline-light  btn-square copycode"><i class="bi bi-clipboard"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- component footer -->
+                            <div class="bg-theme-1-subtle rounded px-3 py-2 mb-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="component-sliders.html" class="btn btn-accent me-3 my-2"><i class="bi bi-arrow-left mr-2"></i> Sliders</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="component-selects.html" class="btn btn-theme my-2">Selects <i class="bi bi-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </main>
+                </div>
+
+                <%= require('../partials/footer/index-footer.html').default %>
+
+                    <!-- page level script -->
+                    <script src="assets/js/component-inputs.js"></script>
+    </body>
+
+</html>

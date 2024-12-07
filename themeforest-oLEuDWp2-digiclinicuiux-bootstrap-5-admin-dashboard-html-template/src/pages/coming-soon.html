@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/head/head.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur">
+        <!-- page loader -->
+        <%= require('../partials/pageloader/clinic-pageloader.html').default %>
+
+            <!-- page header -->
+            <%= require('../partials/header/clinic-header.html').default %>
+
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <%= require('../partials/navigation/clinic-sidebar.html').default %>
+
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- content -->
+                            <div class="container-fluid mt-2" id="main-content">
+                                <div class="card adminuiux-card height-dynamic position-relative overflow-hidden" style="--h-dynamic: calc(100vh - 140px)">
+                                    <div class="row align-items-center h-100">
+                                        <div class="col-12 col-md-6 px-sm-4 px-lg-5">
+                                            <div class="card-body">
+
+                                                <div class="row gx-3">
+                                                    <div class="col-auto">
+                                                        <span id="days" class="fw-medium h1 text-theme-1"></span>
+                                                        <br>
+                                                        <small class="text-secondary">Days</small>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <span class="fw-medium h1 text-theme-1">:</span>
+                                                        <br>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <span id="hrs" class="fw-medium h1 text-theme-1"></span>
+                                                        <br>
+                                                        <small class="text-secondary">Hours</small>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <span class="fw-medium h1 text-theme-1">:</span>
+                                                        <br>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <span id="min" class="fw-medium h1 text-theme-1"></span>
+                                                        <br>
+                                                        <small class="text-secondary">Minutes</small>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <span class="fw-medium h1 text-theme-1">:</span>
+                                                        <br>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <span id="sec" class="fw-medium h1 text-theme-1"></span>
+                                                        <br>
+                                                        <small class="text-secondary">Seconds</small>
+                                                    </div>
+                                                </div>
+                                                <p id="endtimer"></p>
+
+                                                <h1>Get ready for the <b>NEXT</b>!</h1>
+                                                <p class="text-secondary mb-3">Experience seamless management and pixel perfect designs.<br>Creativity that unbox unlimited possibilities.</p>
+
+                                                <h5>Apply for beta release</h5>
+                                                <p class="text-secondary mb-4">You will get an email with steps and verification.</p>
+                                                <div class="input-group width-300 mb-4">
+                                                    <input type="text" class="form-control" placeholder="Your email address">
+                                                    <button class="btn btn-theme" type="button">Apply</button>
+                                                </div><br>
+                                                <a href="investment-dashboard.html" class="btn btn-theme">Back to home <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 h-100 position-relative overflow-hidden">
+                                            <figure class="m-0 position-absolute top-0 start-0 h-100 w-100 coverimg">
+                                                <img src="assets/img/modern-ai-image/user-5.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/clinic-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script>
+                            "use strict";
+
+                            document.addEventListener("DOMContentLoaded", function () {
+                                var countDownDate = new Date("October 20, 2025 15:37:25").getTime();
+
+                                // Update the count down every 1 second
+                                var x = setInterval(function () {
+
+                                    // Get today's date and time
+                                    var now = new Date().getTime();
+
+                                    // Find the distance between now and the count down date
+                                    var distance = countDownDate - now;
+
+                                    // Time calculations for days, hours, minutes and seconds
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                    // Display the result in the element with id="demo"
+                                    document.getElementById("days").innerHTML = days;
+                                    document.getElementById("hrs").innerHTML = hours
+                                    document.getElementById("min").innerHTML = minutes
+                                    document.getElementById("sec").innerHTML = seconds
+
+                                    // If the count down is finished, write some text
+                                    if (distance < 0) {
+                                        clearInterval(x);
+                                        document.getElementById("endtimer").innerHTML = "Our website is a live.";
+                                    }
+                                }, 1000);
+
+
+                            })
+                        </script>
+    </body>
+
+</html>
