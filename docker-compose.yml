@@ -1,0 +1,83 @@
+name: medicalAI
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    env_file:
+      - .env
+    networks:
+      - net.MedicalAI
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  authdb:
+    restart: always
+    image: postgres:latest
+    container_name: authdb
+    volumes:
+      - authdb:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    networks:
+      - net.MedicalAI
+
+  api:
+    restart: always
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    depends_on:
+      - authdb
+      - mongodb
+    volumes:
+      - h2ogpt_data:${H2OGPT_RES_DIR}
+      - static:${STATIC_FILES}
+      - ./api:/app
+    env_file:
+      - ./api/.env
+    networks:
+      - net.MedicalAI
+    ports:
+      - "8000:8000"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      [
+        "python /app/auth/src/backend_pre_start.py; cd /app/auth && alembic upgrade head; cd /app && uvicorn main:app --host 0.0.0.0 --reload"
+      ]
+
+  frontend:
+    restart: always
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - static:${STATIC_FILES}
+    env_file:
+      - ./frontend/.env
+    networks:
+      - net.MedicalAI
+    ports:
+      - "8080:3000"
+
+networks:
+  net.MedicalAI:
+    driver: bridge
+
+volumes:
+  static:
+  authdb:
+  mongodb_data:
+  h2ogpt_data:
