@@ -75,6 +75,18 @@ services:
     ports:
       - "8080:3000"
 
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    networks:
+      - net.MedicalAI
+    ports:
+      - 3306:3306
+    
 networks:
   net.MedicalAI:
     driver: bridge
