@@ -4,6 +4,7 @@ import {
   MdPerson,
   MdHome,
   MdLock,
+  MdAutoAwesome,
   MdOutlineShoppingCart,
 } from 'react-icons/md';
 
@@ -50,6 +51,13 @@ const routes: IRoute[] = [
     layout: '/admin',
     path: '/profile',
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+  },
+  // Add Patient Dashboard here
+  {
+    name: 'Patient Dashboard',
+    layout: '/admin',
+    path: '/patient-dashboard',
+    icon: <Icon as={MdAutoAwesome} width="20px" height="20px" color="inherit" />,
   },
   {
     name: 'Sign In',

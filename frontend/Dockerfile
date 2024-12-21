@@ -6,8 +6,4 @@ COPY package.json /app
 
 RUN yarn install
 
-COPY . /app
-
-RUN yarn run build
-
-CMD ["yarn", "run", "start"]
+CMD ["yarn" , "dev"]

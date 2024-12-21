@@ -1,28 +1,12 @@
 'use client';
+
 /* eslint-disable */
-/*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI - v1.1.0
-=========================================================
+/**
+  Horizon UI Sign-Up Page
+  Modified for user registration purposes.
+**/
 
-* Product Page: https://www.horizon-ui.com/
-* Copyright 2022 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
-import React from 'react';
+import React, { useRef, useState } from 'react';
 // Chakra imports
 import {
   Box,
@@ -44,73 +28,73 @@ import { HSeparator } from 'components/separator/Separator';
 import DefaultAuthLayout from 'layouts/auth/Default';
 // Assets
 import Link from 'next/link';
-import { FcGoogle } from 'react-icons/fc';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { RiEyeCloseLine } from 'react-icons/ri';
-import { setCookie } from 'nookies';
 
-export default function SignIn() {
+export default function SignUp() {
   // Chakra color mode
   const textColor = useColorModeValue('navy.700', 'white');
   const textColorSecondary = 'gray.400';
   const textColorDetails = useColorModeValue('navy.700', 'secondaryGray.600');
   const textColorBrand = useColorModeValue('brand.500', 'white');
   const brandStars = useColorModeValue('brand.500', 'brand.400');
-  const googleBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.200');
-  const googleText = useColorModeValue('navy.700', 'white');
-  const googleHover = useColorModeValue(
-    { bg: 'gray.200' },
-    { bg: 'whiteAlpha.300' },
-  );
-  const googleActive = useColorModeValue(
-    { bg: 'secondaryGray.300' },
-    { bg: 'whiteAlpha.200' },
-  );
-  const [show, setShow] = React.useState(false);
-  // const handleClick = () => setShow(!show)
-  const handleClick = () => {
-    alert('Password visibility toggled');
-    console.log('Password visibility toggled');
-  }
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const passwordRef = React.useRef<HTMLInputElement>(null);
 
-  const handleLogin = async () => {
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
+
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const lastNameRef = useRef<HTMLInputElement>(null);
+  const mobileRef = useRef<HTMLInputElement>(null);
+
+  const handleSignUp = async () => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
-    console.log('Email:', email);
-    console.log('Password:', password);
+    const confirmPassword = confirmPasswordRef.current?.value;
+    const first_name = firstNameRef.current?.value;
+    const last_name = lastNameRef.current?.value;
+    const mobile = mobileRef.current?.value;
 
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/login/access-token`;
-    console.log(url)
+    if (!email || !password || !confirmPassword || !first_name || !last_name || !mobile) {
+      alert('All fields are required.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    const url = 'http://localhost:8000/api/v1/users/signup';
+
     const options = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        grant_type: '',
-        username: email || '',
-        password: password || '',
-        scope: '',
-        client_id: '',
-        client_secret: ''
-      })
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        first_name,
+        last_name,
+        mobile,
+      }),
     };
 
     try {
       const response = await fetch(url, options);
       const data = await response.json();
+
       if (response.ok) {
-        setCookie(null, 'token', data.access_token, {
-          maxAge: 30 * 24 * 60 * 60,
-          path: '/',
-        });
-        console.log('Login successful:', data);
+        alert('Account created successfully!');
       } else {
-        alert('Login failed');
-        console.error('Login failed:', data);
+        alert(`Sign-Up failed: ${data.message || 'Unknown error'}`);
       }
     } catch (error) {
-      alert('An error occurred during login');
+      alert('An error occurred during sign-up. Please try again later.');
       console.error('Error:', error);
     }
   };
@@ -132,7 +116,7 @@ export default function SignIn() {
       >
         <Box me="auto">
           <Heading color={textColor} fontSize="36px" mb="10px">
-            Sign In
+            Sign Up
           </Heading>
           <Text
             mb="36px"
@@ -141,7 +125,7 @@ export default function SignIn() {
             fontWeight="400"
             fontSize="md"
           >
-            Enter your email and password to sign in!
+            Enter your details to create a new account!
           </Text>
         </Box>
         <Flex
@@ -155,139 +139,120 @@ export default function SignIn() {
           me="auto"
           mb={{ base: '20px', md: 'auto' }}
         >
-          <Button
-            fontSize="sm"
-            me="0px"
-            mb="26px"
-            py="15px"
-            h="50px"
-            borderRadius="16px"
-            bgColor={googleBg}
-            color={googleText}
-            fontWeight="500"
-            _hover={googleHover}
-            _active={googleActive}
-            _focus={googleActive}
-          >
-            <Icon as={FcGoogle} w="20px" h="20px" me="10px" />
-            Sign in with Google
-          </Button>
-          <Flex align="center" mb="25px">
-            <HSeparator />
-            <Text color="gray.400" mx="14px">
-              or
-            </Text>
-            <HSeparator />
-          </Flex>
           <FormControl>
-            <FormLabel
-              display="flex"
-              ms="4px"
-              fontSize="sm"
-              fontWeight="500"
-              color={textColor}
-              mb="8px"
-            >
+            <FormLabel color={textColor} fontSize="sm" fontWeight="500">
+              First Name<Text color={brandStars}>*</Text>
+            </FormLabel>
+            <Input
+              ref={firstNameRef}
+              type="text"
+              placeholder="John"
+              variant="auth"
+              size="lg"
+              mb="24px"
+            />
+
+            <FormLabel color={textColor} fontSize="sm" fontWeight="500">
+              Last Name<Text color={brandStars}>*</Text>
+            </FormLabel>
+            <Input
+              ref={lastNameRef}
+              type="text"
+              placeholder="Doe"
+              variant="auth"
+              size="lg"
+              mb="24px"
+            />
+
+            <FormLabel color={textColor} fontSize="sm" fontWeight="500">
+              Mobile<Text color={brandStars}>*</Text>
+            </FormLabel>
+            <Input
+              ref={mobileRef}
+              type="text"
+              placeholder="123-456-7890"
+              variant="auth"
+              size="lg"
+              mb="24px"
+            />
+
+            <FormLabel color={textColor} fontSize="sm" fontWeight="500">
               Email<Text color={brandStars}>*</Text>
             </FormLabel>
             <Input
-              isRequired={true}
-              variant="auth"
-              fontSize="sm"
-              ms={{ base: '0px', md: '0px' }}
-              type="email"
-              placeholder="mail@simmmple.com"
-              mb="24px"
-              fontWeight="500"
-              size="lg"
               ref={emailRef}
+              type="email"
+              placeholder="mail@domain.com"
+              variant="auth"
+              size="lg"
+              mb="24px"
             />
-            <FormLabel
-              ms="4px"
-              fontSize="sm"
-              fontWeight="500"
-              color={textColor}
-              display="flex"
-            >
+
+            <FormLabel color={textColor} fontSize="sm" fontWeight="500">
               Password<Text color={brandStars}>*</Text>
             </FormLabel>
             <InputGroup size="md">
               <Input
-                isRequired={true}
-                fontSize="sm"
-                placeholder="Min. 8 characters"
-                mb="24px"
-                size="lg"
-                type={show ? 'text' : 'password'}
-                variant="auth"
                 ref={passwordRef}
+                type={show ? 'text' : 'password'}
+                placeholder="Min. 8 characters"
+                variant="auth"
+                size="lg"
+                mb="24px"
               />
-              <InputRightElement display="flex" alignItems="center" mt="4px">
+              <InputRightElement>
                 <Icon
-                  color={textColorSecondary}
-                  _hover={{ cursor: 'pointer' }}
                   as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
                   onClick={handleClick}
+                  cursor="pointer"
                 />
               </InputRightElement>
             </InputGroup>
-            <Flex justifyContent="space-between" align="center" mb="24px">
-              <FormControl display="flex" alignItems="center">
-                <Checkbox
-                  id="remember-login"
-                  colorScheme="brandScheme"
-                  me="10px"
+
+            <FormLabel color={textColor} fontSize="sm" fontWeight="500">
+              Confirm Password<Text color={brandStars}>*</Text>
+            </FormLabel>
+            <InputGroup size="md">
+              <Input
+                ref={confirmPasswordRef}
+                type={show ? 'text' : 'password'}
+                placeholder="Re-enter your password"
+                variant="auth"
+                size="lg"
+                mb="24px"
+              />
+              <InputRightElement>
+                <Icon
+                  as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
+                  onClick={handleClick}
+                  cursor="pointer"
                 />
-                <FormLabel
-                  htmlFor="remember-login"
-                  mb="0"
-                  fontWeight="normal"
-                  color={textColor}
-                  fontSize="sm"
-                >
-                  Keep me logged in
-                </FormLabel>
-              </FormControl>
-              <Link href="/auth/forgot-password">
-                <Text
-                  color={textColorBrand}
-                  fontSize="sm"
-                  w="124px"
-                  fontWeight="500"
-                >
-                  Forgot password?
-                </Text>
-              </Link>
+              </InputRightElement>
+            </InputGroup>
+
+            <Flex alignItems="center" mb="24px">
+              <Checkbox id="terms-and-conditions" />
+              <FormLabel
+                htmlFor="terms-and-conditions"
+                mb="0"
+                fontSize="sm"
+                fontWeight="normal"
+              >
+                I agree to the terms and conditions
+              </FormLabel>
             </Flex>
-            <Button
-              fontSize="sm"
-              variant="brand"
-              fontWeight="500"
-              w="100%"
-              h="50"
-              mb="24px"
-              onClick={handleLogin}
-            >
-              Sign In
+
+            <Button w="100%" h="50px" onClick={handleSignUp}>
+              Sign Up
             </Button>
           </FormControl>
-          <Flex
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="start"
-            maxW="100%"
-            mt="0px"
-          >
-            <Link href="/auth/sign-up">
-              <Text color={textColorDetails} fontWeight="400" fontSize="14px">
-                Not registered yet?
-                <Text
-                  color={textColorBrand}
-                  as="span"
-                  ms="5px"
-                  fontWeight="500"
-                >
-                  Create an Account
+
+          <Flex justifyContent="center" mt="20px">
+            <Link href="/auth/sign-in">
+              <Text>
+                Already have an account?{' '}
+                <Text as="span" color={textColorBrand} fontWeight="500">
+                  Sign In
                 </Text>
               </Text>
             </Link>

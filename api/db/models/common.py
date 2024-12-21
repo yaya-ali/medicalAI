@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 import warnings
 from fastapi import Query
 from pydantic import BaseModel, Field
@@ -49,9 +49,13 @@ class H2ogptBaseRequest(PaginateRequest):
     chatId: Optional[str] = Query(None, description="chatId")
     patientId: Optional[str] = Query(None, description="PatientId")
     userId: Optional[str] = None
-    chat: Optional[
-        ChatModel
-    ] = None  # chat contains all above fields, this is for internal use
+    # chat: Optional[
+    #     ChatModel
+    # ] = None  # chat contains all above fields, this is for internal use
+    chat: Any = None
+
+    class Config:
+        arbitrary_types_allowed = True
 
 
 class GetChatRequest(PaginateRequest, FilterRequest):

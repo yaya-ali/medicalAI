@@ -1,9 +1,9 @@
-from typing import Dict
+from typing import Any, Dict
 from pydantic import BaseModel
 
 from models.schema import ChatModel
 
 
 class ChatResponse(BaseModel):
-    chat: ChatModel
+    chat: Any
     msg: Dict

@@ -14,12 +14,13 @@ export const findCurrentRoute = (routes: IRoute[]): IRoute => {
   return foundRoute;
 };
 
-export const getActiveRoute = (routes: IRoute[]): string => {
+export const getActiveRoute = (routes: IRoute[], pathname: string): string => {
   const route = findCurrentRoute(routes);
   return route?.name || "Default Brand Text";
 };
 
-export const getActiveNavbar = (routes: IRoute[]): boolean => {
+
+export const getActiveNavbar = (routes: IRoute[], pathname: string): boolean => {
   const route = findCurrentRoute(routes);
   return route?.secondary;
 };

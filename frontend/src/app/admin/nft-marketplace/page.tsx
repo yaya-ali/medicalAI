@@ -1,313 +1,429 @@
 'use client';
-/*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI - v1.1.0
-=========================================================
+/*eslint-disable*/
 
-* Product Page: https://www.horizon-ui.com/
-* Copyright 2022 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
-import React from 'react';
-
-// Chakra imports
+import Link from 'components/link/Link';
+import MessageBoxChat from 'components/MessageBox';
+import { ChatBody, OpenAIModel } from 'types/types';
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Button,
   Flex,
-  Grid,
+  Icon,
+  Img,
+  Input,
   Text,
   useColorModeValue,
-  SimpleGrid,
-  Link,
 } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { MdAutoAwesome, MdBolt, MdEdit, MdPerson } from 'react-icons/md';
+//import Bg from '/img/chat/bg-image.png';
+import Bg from './chat/bg-image.png' 
+//const Bg = '/img/chat/bg-image.png';
+export default function Chat(props: { apiKeyApp: string }) {
+  // Input States
+  const [inputOnSubmit, setInputOnSubmit] = useState<string>('');
+  const [inputCode, setInputCode] = useState<string>('');
+  // Response message
+  const [outputCode, setOutputCode] = useState<string>('');
+  // ChatGPT model
+  const [model, setModel] = useState<OpenAIModel>('gpt-4o');
+  // Loading state
+  const [loading, setLoading] = useState<boolean>(false);
 
-// Custom components
-import TableTopCreators from 'views/admin/marketplace/components/TableTopCreators';
-import HistoryItem from 'views/admin/marketplace/components/HistoryItem';
-import NFT from 'components/card/NFT';
-import Card from 'components/card/Card';
-import tableDataTopCreators from 'views/admin/marketplace/variables/tableDataTopCreators';
+  // API Key
+  // const [apiKey, setApiKey] = useState<string>(apiKeyApp);
+  const borderColor = useColorModeValue('gray.200', 'whiteAlpha.200');
+  const inputColor = useColorModeValue('navy.700', 'white');
+  const iconColor = useColorModeValue('brand.500', 'white');
+  const bgIcon = useColorModeValue(
+    'linear-gradient(180deg, #FBFBFF 0%, #CACAFF 100%)',
+    'whiteAlpha.200',
+  );
+  const brandColor = useColorModeValue('brand.500', 'white');
+  const buttonBg = useColorModeValue('white', 'whiteAlpha.100');
+  const gray = useColorModeValue('gray.500', 'white');
+  const buttonShadow = useColorModeValue(
+    '14px 27px 45px rgba(112, 144, 176, 0.2)',
+    'none',
+  );
+  const textColor = useColorModeValue('navy.700', 'white');
+  const placeholderColor = useColorModeValue(
+    { color: 'gray.500' },
+    { color: 'whiteAlpha.600' },
+  );
+  const handleTranslate = async () => {
+    let apiKey = localStorage.getItem('apiKey');
+    setInputOnSubmit(inputCode);
 
-// Assets
-import Nft1 from 'img/nfts/Nft1.png';
-import Nft2 from 'img/nfts/Nft2.png';
-import Nft3 from 'img/nfts/Nft3.png';
-import Nft4 from 'img/nfts/Nft4.png';
-import Nft5 from 'img/nfts/Nft5.png';
-import Nft6 from 'img/nfts/Nft6.png';
-import Avatar1 from 'img/avatars/avatar1.png';
-import Avatar2 from 'img/avatars/avatar2.png';
-import Avatar3 from 'img/avatars/avatar3.png';
-import Avatar4 from 'img/avatars/avatar4.png';
-import AdminLayout from 'layouts/admin';
+    // Chat post conditions(maximum number of characters, valid message etc.)
+    const maxCodeLength = model === 'gpt-4o' ? 700 : 700;
 
-export default function NftMarketplace() {
-  // Chakra Color Mode
-  const textColor = useColorModeValue('secondaryGray.900', 'white');
-  const textColorBrand = useColorModeValue('brand.500', 'white');
+    if (!apiKey?.includes('sk-')) {
+      alert('Please enter an API key.');
+      return;
+    }
+
+    if (!inputCode) {
+      alert('Please enter your message.');
+      return;
+    }
+
+    if (inputCode.length > maxCodeLength) {
+      alert(
+        `Please enter code less than ${maxCodeLength} characters. You are currently at ${inputCode.length} characters.`,
+      );
+      return;
+    }
+    setOutputCode(' ');
+    setLoading(true);
+    const controller = new AbortController();
+    const body: ChatBody = {
+      inputCode,
+      model,
+      apiKey,
+    };
+
+    // -------------- Fetch --------------
+    const response = await fetch('./api/chatAPI', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      signal: controller.signal,
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      setLoading(false);
+      if (response) {
+        alert(
+          'Something went wrong went fetching from the API. Make sure to use a valid API key.',
+        );
+      }
+      return;
+    }
+
+    const data = response.body;
+
+    if (!data) {
+      setLoading(false);
+      alert('Something went wrong');
+      return;
+    }
+
+    const reader = data.getReader();
+    const decoder = new TextDecoder();
+    let done = false;
+
+    while (!done) {
+      setLoading(true);
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+      const chunkValue = decoder.decode(value);
+      setOutputCode((prevCode) => prevCode + chunkValue);
+    }
+
+    setLoading(false);
+  };
+  // -------------- Copy Response --------------
+  // const copyToClipboard = (text: string) => {
+  //   const el = document.createElement('textarea');
+  //   el.value = text;
+  //   document.body.appendChild(el);
+  //   el.select();
+  //   document.execCommand('copy');
+  //   document.body.removeChild(el);
+  // };
+
+  // *** Initializing apiKey with .env.local value
+  // useEffect(() => {
+  // ENV file verison
+  // const apiKeyENV = process.env.NEXT_PUBLIC_OPENAI_API_KEY
+  // if (apiKey === undefined || null) {
+  //   setApiKey(apiKeyENV)
+  // }
+  // }, [])
+
+  const handleChange = (Event: any) => {
+    setInputCode(Event.target.value);
+  };
+
   return (
-    <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>
-      {/* Main Fields */}
-      <Grid
-        mb="20px"
-        gridTemplateColumns={{ xl: 'repeat(3, 1fr)', '2xl': '1fr 0.46fr' }}
-        gap={{ base: '20px', xl: '20px' }}
-        display={{ base: 'block', xl: 'grid' }}
+    <Flex
+      w="100%"
+      pt={{ base: '70px', md: '0px' }}
+      direction="column"
+      position="relative"
+    >
+      <Img
+        src={Bg.src}
+        position={'absolute'}
+        w="350px"
+        left="50%"
+        top="50%"
+        transform={'translate(-50%, -50%)'}
+      />
+      <Flex
+        direction="column"
+        mx="auto"
+        w={{ base: '100%', md: '100%', xl: '100%' }}
+        minH={{ base: '75vh', '2xl': '85vh' }}
+        maxW="1000px"
       >
-        <Flex
-          flexDirection="column"
-          gridArea={{ xl: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2' }}
-        >
-          {/* <Banner /> */}
-          <Flex direction="column">
+        {/* Model Change */}
+        <Flex direction={'column'} w="100%" mb={outputCode ? '20px' : 'auto'}>
+          <Flex
+            mx="auto"
+            zIndex="2"
+            w="max-content"
+            mb="20px"
+            borderRadius="60px"
+          >
             <Flex
-              mt="45px"
-              mb="20px"
-              justifyContent="space-between"
-              direction={{ base: 'column', md: 'row' }}
-              align={{ base: 'start', md: 'center' }}
-            >
-              <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
-                Trending NFTs
-              </Text>
-              <Flex
-                align="center"
-                me="20px"
-                ms={{ base: '24px', md: '0px' }}
-                mt={{ base: '20px', md: '0px' }}
-              >
-                <Link
-                  href="#art"
-                  color={textColorBrand}
-                  fontWeight="500"
-                  me={{ base: '34px', md: '44px' }}
-                >
-                  Art
-                </Link>
-                <Link
-                  href="#music"
-                  color={textColorBrand}
-                  fontWeight="500"
-                  me={{ base: '34px', md: '44px' }}
-                >
-                  Music
-                </Link>
-                <Link
-                  href="#collectibles"
-                  color={textColorBrand}
-                  fontWeight="500"
-                  me={{ base: '34px', md: '44px' }}
-                >
-                  Collectibles
-                </Link>
-                <Link href="#sports" color={textColorBrand} fontWeight="500">
-                  Sports
-                </Link>
-              </Flex>
-            </Flex>
-            <SimpleGrid columns={{ base: 1, md: 3 }} gap="20px">
-              <NFT
-                name="Abstract Colors"
-                author="By Esthera Jackson"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft1}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-              <NFT
-                name="ETH AI Brain"
-                author="By Nick Wilson"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft2}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-              <NFT
-                name="Mesh Gradients "
-                author="By Will Smith"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft3}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-            </SimpleGrid>
-            <Text
-              mt="45px"
-              mb="36px"
+              cursor={'pointer'}
+              transition="0.3s"
+              justify={'center'}
+              align="center"
+              bg={model === 'gpt-4o' ? buttonBg : 'transparent'}
+              w="174px"
+              h="70px"
+              boxShadow={model === 'gpt-4o' ? buttonShadow : 'none'}
+              borderRadius="14px"
               color={textColor}
-              fontSize="2xl"
-              ms="24px"
-              fontWeight="700"
+              fontSize="18px"
+              fontWeight={'700'}
+              onClick={() => setModel('gpt-4o')}
             >
-              Recently Added
-            </Text>
-            <SimpleGrid
-              columns={{ base: 1, md: 3 }}
-              gap="20px"
-              mb={{ base: '20px', xl: '0px' }}
+              <Flex
+                borderRadius="full"
+                justify="center"
+                align="center"
+                bg={bgIcon}
+                me="10px"
+                h="39px"
+                w="39px"
+              >
+                <Icon
+                  as={MdAutoAwesome}
+                  width="20px"
+                  height="20px"
+                  color={iconColor}
+                />
+              </Flex>
+              GPT-4o
+            </Flex>
+            <Flex
+              cursor={'pointer'}
+              transition="0.3s"
+              justify={'center'}
+              align="center"
+              bg={model === 'gpt-3.5-turbo' ? buttonBg : 'transparent'}
+              w="164px"
+              h="70px"
+              boxShadow={model === 'gpt-3.5-turbo' ? buttonShadow : 'none'}
+              borderRadius="14px"
+              color={textColor}
+              fontSize="18px"
+              fontWeight={'700'}
+              onClick={() => setModel('gpt-3.5-turbo')}
             >
-              <NFT
-                name="Swipe Circles"
-                author="By Peter Will"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft4}
-                currentbid="0.91 ETH"
-                download="#"
+              <Flex
+                borderRadius="full"
+                justify="center"
+                align="center"
+                bg={bgIcon}
+                me="10px"
+                h="39px"
+                w="39px"
+              >
+                <Icon
+                  as={MdBolt}
+                  width="20px"
+                  height="20px"
+                  color={iconColor}
+                />
+              </Flex>
+              GPT-3.5
+            </Flex>
+          </Flex>
+
+          <Accordion color={gray} allowToggle w="100%" my="0px" mx="auto">
+            <AccordionItem border="none">
+              <AccordionButton
+                borderBottom="0px solid"
+                maxW="max-content"
+                mx="auto"
+                _hover={{ border: '0px solid', bg: 'none' }}
+                _focus={{ border: '0px solid', bg: 'none' }}
+              >
+                <Box flex="1" textAlign="left">
+                  <Text color={gray} fontWeight="500" fontSize="sm">
+                    No plugins added
+                  </Text>
+                </Box>
+                <AccordionIcon color={gray} />
+              </AccordionButton>
+              <AccordionPanel mx="auto" w="max-content" p="0px 0px 10px 0px">
+                <Text
+                  color={gray}
+                  fontWeight="500"
+                  fontSize="sm"
+                  textAlign={'center'}
+                >
+                  This is a cool text example.
+                </Text>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+        </Flex>
+        {/* Main Box */}
+        <Flex
+          direction="column"
+          w="100%"
+          mx="auto"
+          display={outputCode ? 'flex' : 'none'}
+          mb={'auto'}
+        >
+          <Flex w="100%" align={'center'} mb="10px">
+            <Flex
+              borderRadius="full"
+              justify="center"
+              align="center"
+              bg={'transparent'}
+              border="1px solid"
+              borderColor={borderColor}
+              me="20px"
+              h="40px"
+              minH="40px"
+              minW="40px"
+            >
+              <Icon
+                as={MdPerson}
+                width="20px"
+                height="20px"
+                color={brandColor}
               />
-              <NFT
-                name="Colorful Heaven"
-                author="By Mark Benjamin"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft5}
-                currentbid="0.91 ETH"
-                download="#"
+            </Flex>
+            <Flex
+              p="22px"
+              border="1px solid"
+              borderColor={borderColor}
+              borderRadius="14px"
+              w="100%"
+              zIndex={'2'}
+            >
+              <Text
+                color={textColor}
+                fontWeight="600"
+                fontSize={{ base: 'sm', md: 'md' }}
+                lineHeight={{ base: '24px', md: '26px' }}
+              >
+                {inputOnSubmit}
+              </Text>
+              <Icon
+                cursor="pointer"
+                as={MdEdit}
+                ms="auto"
+                width="20px"
+                height="20px"
+                color={gray}
               />
-              <NFT
-                name="3D Cubes Art"
-                author="By Manny Gates"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft6}
-                currentbid="0.91 ETH"
-                download="#"
+            </Flex>
+          </Flex>
+          <Flex w="100%">
+            <Flex
+              borderRadius="full"
+              justify="center"
+              align="center"
+              bg={'linear-gradient(15.46deg, #4A25E1 26.3%, #7B5AFF 86.4%)'}
+              me="20px"
+              h="40px"
+              minH="40px"
+              minW="40px"
+            >
+              <Icon
+                as={MdAutoAwesome}
+                width="20px"
+                height="20px"
+                color="white"
               />
-            </SimpleGrid>
+            </Flex>
+            <MessageBoxChat output={outputCode} />
           </Flex>
         </Flex>
+        {/* Chat Input */}
         <Flex
-          flexDirection="column"
-          gridArea={{ xl: '1 / 3 / 2 / 4', '2xl': '1 / 2 / 2 / 3' }}
+          ms={{ base: '0px', xl: '60px' }}
+          mt="20px"
+          justifySelf={'flex-end'}
         >
-          <Card px="0px" mb="20px">
-            <TableTopCreators tableData={tableDataTopCreators} />
-          </Card>
-          <Card p="0px">
-            <Flex
-              align={{ sm: 'flex-start', lg: 'center' }}
-              justify="space-between"
-              w="100%"
-              px="22px"
-              py="18px"
-            >
-              <Text color={textColor} fontSize="xl" fontWeight="600">
-                History
-              </Text>
-              <Button variant="action">See all</Button>
-            </Flex>
-
-            <HistoryItem
-              name="Colorful Heaven"
-              author="By Mark Benjamin"
-              date="30s ago"
-              image={Nft5}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="Abstract Colors"
-              author="By Esthera Jackson"
-              date="58s ago"
-              image={Nft1}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="ETH AI Brain"
-              author="By Nick Wilson"
-              date="1m ago"
-              image={Nft2}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="Swipe Circles"
-              author="By Peter Will"
-              date="1m ago"
-              image={Nft4}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="Mesh Gradients "
-              author="By Will Smith"
-              date="2m ago"
-              image={Nft3}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="3D Cubes Art"
-              author="By Manny Gates"
-              date="3m ago"
-              image={Nft6}
-              price="0.91 ETH"
-            />
-          </Card>
+          <Input
+            minH="54px"
+            h="100%"
+            border="1px solid"
+            borderColor={borderColor}
+            borderRadius="45px"
+            p="15px 20px"
+            me="10px"
+            fontSize="sm"
+            fontWeight="500"
+            _focus={{ borderColor: 'none' }}
+            color={inputColor}
+            _placeholder={placeholderColor}
+            placeholder="Type your message here..."
+            onChange={handleChange}
+          />
+          <Button
+            variant="primary"
+            py="20px"
+            px="16px"
+            fontSize="sm"
+            borderRadius="45px"
+            ms="auto"
+            w={{ base: '160px', md: '210px' }}
+            h="54px"
+            _hover={{
+              boxShadow:
+                '0px 21px 27px -10px rgba(96, 60, 255, 0.48) !important',
+              bg: 'linear-gradient(15.46deg, #4A25E1 26.3%, #7B5AFF 86.4%) !important',
+              _disabled: {
+                bg: 'linear-gradient(15.46deg, #4A25E1 26.3%, #7B5AFF 86.4%)',
+              },
+            }}
+            onClick={handleTranslate}
+            isLoading={loading ? true : false}
+          >
+            Submit
+          </Button>
         </Flex>
-      </Grid>
-      {/* Delete Product */}
-    </Box>
+
+        <Flex
+          justify="center"
+          mt="20px"
+          direction={{ base: 'column', md: 'row' }}
+          alignItems="center"
+        >
+          <Text fontSize="xs" textAlign="center" color={gray}>
+            Free Research Preview. ChatGPT may produce inaccurate information
+            about people, places, or facts.
+          </Text>
+          <Link href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">
+            <Text
+              fontSize="xs"
+              color={textColor}
+              fontWeight="500"
+              textDecoration="underline"
+            >
+              ChatGPT May 12 Version
+            </Text>
+          </Link>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 }
