@@ -83,19 +83,17 @@ class H2ogptConverseWithDocs(H2ogptConverse):
     async def build_pipelines(
         self, req: ConverseWithDocsRequest
     ) -> list | APIExceptionResponse:
-        result = []
         for p in req.pipelines:
             try:
-                result.append(
-                    PipelineRunner(
-                        pipeline=PipelineNames[p],
-                        req=FhirBasePatientRequest(
-                            fields=req.fields,
-                            conditions=req.conditions,
-                            patientId=req.patientId,
-                        ),
-                    ).run
-                )
+                result = PipelineRunner(
+                    pipeline=PipelineNames[p],
+                    req=FhirBasePatientRequest(
+                        fields=req.fields,
+                        conditions=req.conditions,
+                        patientId=req.patientId,
+                    ),
+                ).run
+                
 
                 if not self.chat.pipeline_exists(self.chat.tosha256(str(result))):
                     self.chat.h2ogpt_resources["pipelines"].append(

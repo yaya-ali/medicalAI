@@ -12,7 +12,7 @@ from pipeline.utils.runner import PipelineNames, PipelineRunner
 router = APIRouter(dependencies=[Depends(get_current_user)])
 
 
-@router.get("/{patientId}", response_model=List[AllChatsModel] | APIExceptionResponse)
+@router.get("/{patientId}")
 def get_all_chats(
     user: CurrentUser,
     patientId: PatientIdRequired,

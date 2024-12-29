@@ -111,7 +111,6 @@ class ChatPipeline(BasePipelineChat):
             {
                 "$project": {
                     "_id": 0,
-                    "metadata": "$metadata",
                 }
             },
         ]
@@ -131,7 +130,8 @@ class ChatPipeline(BasePipelineChat):
                 data=result,
             )
 
-        return [AllChatsModel(**chat) for chat in result]
+        # return [AllChatsModel(**chat) for chat in result]
+        return result
 
     @exhandler
     def delete_chat(self):
