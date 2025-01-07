@@ -44,7 +44,7 @@ async def converse(
 
 @router.post(
     "/converseWithDocs",
-    response_model=ConverseResponse | APIExceptionResponse,
+    response_model=ConverseResponse | APIExceptionResponse | dict,
 )
 async def converse_with_docs(
     user: CurrentUser,
@@ -61,7 +61,10 @@ async def converse_with_docs(
             H2ogptRequest(client=client, req=req, userId=userId)
         ).converse_with_docs(req)
     except Exception as e:
-        print(e)
+        import traceback
+
+        traceback.print_exc()
+
         raise HTTPException(status_code=500, detail=e.__repr__())
 
     if isinstance(result, APIExceptionResponse):

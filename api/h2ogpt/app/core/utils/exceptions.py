@@ -37,6 +37,12 @@ class ExceptionHandler(Exception):
         verbose: int = settings.VERBOSE
         exception_name = self.exception.__class__.__name__
         cause = self.msg if verbose != 3 else self.get_cause_details()
+        return {
+            "error": exception_name,
+            "cause": cause,
+            "solution": self.solution,
+            "msg": self.msg,
+        }
         if verbose == 1:
             return {
                 "msg": self.msg,

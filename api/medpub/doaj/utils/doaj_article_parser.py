@@ -110,5 +110,4 @@ class DOAJUtils:
                 "status": "error",
                 "detail": f"DOAJUtils::Exception:: {repr(e)}",
             }
-
         return article_metadata_list

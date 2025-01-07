@@ -25,11 +25,11 @@ app = FastAPI(
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
         CORSMiddleware,
-    #    """  allow_origins=[
-    #         str(origin).strip("/") for origin in settings.BACKEND_CORS_ORIGINS
+        #    """  allow_origins=[
+        #         str(origin).strip("/") for origin in settings.BACKEND_CORS_ORIGINS
         #     ], """:
         allow_origins=["*"],
-        #allow_origins=["http://localhost:5173"],
+        # allow_origins=["http://localhost:5173"],
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -39,19 +39,20 @@ if settings.BACKEND_CORS_ORIGINS:
 @app.get(f"{settings.API_VERSION_PREFIX}/scalar", include_in_schema=False)
 async def scalar():
     return get_scalar_api_reference(
-        openapi_url=app.openapi_url, title=settings.PROJECT_NAME  # type: ignore
+        openapi_url=app.openapi_url,
+        title=settings.PROJECT_NAME,  # type: ignore
     )
 
 
 # internal server error handler
-@app.exception_handler(Exception)
-async def custom_http_exception_handler(_, exc):
-    if isinstance(exc, (pipeline_exception_handler, h2ogpt_exception_handler)):
-        return JSONResponse(status_code=500, content=exc.__repr__())
-    return JSONResponse(status_code=500, content={"msg": exc.__str__()})
+# @app.exception_handler(Exception)
+# async def custom_http_exception_handler(_, exc):
+#     if isinstance(exc, (pipeline_exception_handler, h2ogpt_exception_handler)):
+#         return JSONResponse(status_code=500, content=exc.__repr__())
+#     return JSONResponse(status_code=500, content={"msg": exc.__str__()})
 
 
 app.include_router(auth_router, prefix=settings.API_VERSION_PREFIX)
-# app.include_router(medpub_doaj_router, prefix=settings.API_VERSION_PREFIX)
+app.include_router(medpub_doaj_router, prefix=settings.API_VERSION_PREFIX)
 app.include_router(db_router, prefix=settings.API_VERSION_PREFIX)
 app.include_router(h2ogpt_router, prefix=settings.API_VERSION_PREFIX)

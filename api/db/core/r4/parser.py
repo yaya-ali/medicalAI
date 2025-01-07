@@ -82,12 +82,15 @@ def init():
                 # create folder with patientId
                 if not os.path.exists(patientId):
                     os.makedirs(patientId)
-                with open(f"{patientId}/{patientId}_{c}.json", "w") as w:
-                    w.write(
-                        json.dumps(
-                            SyntheaParser(data=data, patientId=patientId).parser(c)
+                try:
+                    with open(f"{patientId}/{patientId}_{c}.json", "w") as w:
+                        w.write(
+                            json.dumps(
+                                SyntheaParser(data=data, patientId=patientId).parser(c)
+                            )
                         )
-                    )
+                except Exception:
+                    ...
 
 
 def drop_all():

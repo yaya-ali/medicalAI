@@ -11,6 +11,7 @@ from h2ogpt.app.schemas.request import (
 )
 from h2ogpt.app.core.utils.client import H2ogptAuth
 from h2ogpt.app.core.utils.exceptions import exhandler
+from db.pipeline.chat import ChatPipeline
 
 
 class H2ogptConverse(H2ogptAuth):
@@ -30,26 +31,31 @@ class H2ogptConverse(H2ogptAuth):
             chat.metadata["patientId"] = self.req.patientId
             self.req.chatId = chat.metadata["chatId"]
 
+            # Run pipeline to initiate the chat
             self.chat: ChatModel = (
                 PipelineRunner(
                     pipeline=PipelineNames["Chat"],
                     req=H2ogptBaseRequest(chat=chat),
                     func="new_chat",
                 )
-                .run()
+                .run()  # Ensure .run() is called to execute the pipeline
                 .chat
             )
 
             self.chat_conversation = self.chat.h2ogpt_chat_conversation()
         else:
-            chat = ChatModel(metadata={"chatId": self.req.chatId})
+            chat = ChatModel()
+            chat.metadata["chatId"] = self.req.chatId
+
+            self.chat = ChatPipeline()
             self.chat = PipelineRunner(
                 pipeline=PipelineNames["Chat"],
                 req=H2ogptBaseRequest(chat=chat),
-            ).run
+            ).run  # Ensure .run() is called to execute the pipeline
 
             self.chat_conversation = self.chat.h2ogpt_chat_conversation()
 
+        # Update chat conversation in the database
         self.chat.db_chat_conversation(self.chat_conversation, refresh=True)
 
     @exhandler
@@ -62,7 +68,7 @@ class H2ogptConverse(H2ogptAuth):
             instruction=instruction,
             langchain_mode=self.langchain_mode,
             langchain_action=self.langchain_action,
-            stream_output=False,
+            stream_output=True,
             h2ogpt_key=self.h2ogpt_key,
             top_k_docs=self.top_k_docs,  # -1 entire document
             document_subset=self.document_subset,
@@ -84,16 +90,17 @@ class H2ogptConverse(H2ogptAuth):
 
         j_transcription = "".join(transcription)
 
-        # we have a chat object already, we just need to update it
+        # Update the chat object with the summary and transcription
         self.chat.metadata["audioSummary"] = response
         self.chat.metadata["audioTranscription"] = j_transcription
 
         self.chat.h2ogpt_resources["audioConsultation"].append(req.h2ogpt_path)
 
-        # HACK: we need to update the title
+        # HACK: Update the title
         asyncio.run(self.gen_title(content=[(instruction, j_transcription)]))
         asyncio.run(self.chat.update_tags())
 
+        # Update the chat using the pipeline
         PipelineRunner(
             pipeline=PipelineNames["Chat"],
             func="update_chat",
@@ -107,9 +114,10 @@ class H2ogptConverse(H2ogptAuth):
         }
 
     async def gen_title(self, content: list | None = None):
+        return None
         chat_conversation = self.chat_conversation if content is None else content
         kwargs = dict(
-            instruction="give me a very short summary on what this conversation is about. Not more than 10words",
+            instruction="give me a very short summary on what this conversation is about. Not more than 10 words",
             h2ogpt_key=self.h2ogpt_key,
             chat_conversation=chat_conversation,
         )
@@ -153,14 +161,17 @@ class H2ogptConverse(H2ogptAuth):
                 yield r
                 response += r
 
+            # Append conversation to the chat and update the database
             self.chat_conversation.append((req.instruction, response))
             self.chat.db_chat_conversation(
                 chat_conversation=self.chat_conversation, refresh=True
             )
 
-            # TODO: run this concurrently
+            # Run concurrently for updating the title and tags
             await self.gen_title()
             await self.chat.update_tags()
+
+            # Update the chat using the pipeline
             PipelineRunner(
                 pipeline=PipelineNames["Chat"],
                 func="update_chat",

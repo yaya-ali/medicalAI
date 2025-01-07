@@ -21,7 +21,7 @@ class PaginateRequest(BaseModel):
         description="The number of items to skip at the beginning of the result set",
     )
     limit: Optional[int] = Field(
-        default=5,
+        default=3,
         description="The maximum number of items to return in the result set",
     )
 

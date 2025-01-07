@@ -27,8 +27,8 @@ class DOAJArticlesPipeline(DOAJCore):
     def article(
         self,
         req: DOAJArticleRequest,
-        filter: FilterRequest,
-        paginate: PaginateRequest,
+        filter: FilterRequest = FilterRequest(),
+        paginate: PaginateRequest = PaginateRequest(),
     ) -> list[dict[str, Any]]:
         """
         Retrieves articles based on the provided request, filter, and pagination parameters.
@@ -82,12 +82,12 @@ class DOAJArticlesPipeline(DOAJCore):
 
                 result = [result for result in self.cursor["ARTICLES"].aggregate(query)]  # type: ignore[arg-type]
 
-                if filter.fields and filter.conditions:
+                """ if filter.fields and filter.conditions:
                     result = DataFilter().filter(
                         fields=filter.fields,
                         conditions=filter.conditions,
                         data=result,
-                    )
+                    ) """
                 final_result.extend(result)
         else:
             query = [

@@ -50,7 +50,6 @@ class ChatPipeline(BasePipelineChat):
                 result
                 for result in self.cursor[self.collection].aggregate(query)  # type: ignore[arg-type]
             ]
-
             return ChatModel(**result[0])
 
         except Exception:

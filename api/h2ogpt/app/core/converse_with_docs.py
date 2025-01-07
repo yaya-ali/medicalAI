@@ -1,5 +1,11 @@
 from fastapi.responses import StreamingResponse
-from db.models.common import FhirBasePatientRequest, H2ogptBaseRequest
+from db.models.common import (
+    FhirBasePatientRequest,
+    FilterRequest,
+    H2ogptBaseRequest,
+    PaginateRequest,
+)
+
 from db.pipeline.utils.runner import PipelineNames, PipelineRunner
 from h2ogpt.app.schemas.request import (
     BaseConverseRequest,
@@ -15,6 +21,9 @@ from h2ogpt.app.core.config import settings
 from typing import Any
 
 import os
+
+from medpub.doaj.db.pipeline.articles import DOAJArticlesPipeline
+from medpub.doaj.schema.req import DOAJArticleRequest
 
 
 class H2ogptConverseWithDocs(H2ogptConverse):
@@ -77,12 +86,26 @@ class H2ogptConverseWithDocs(H2ogptConverse):
                     client=self,
                     h2ogpt_path=True,
                 )
+        print(dois)
         return dois
 
     @exhandler
     async def build_pipelines(
         self, req: ConverseWithDocsRequest
     ) -> list | APIExceptionResponse:
+        if not req.pipelines:
+            req.pipelines = [
+                "Patient",
+                "AllergyIntolerance",
+                "Vitals",
+                "Encounter",
+                "Immunization",
+                "Procedure",
+                "Observation",
+                "MedicationRequest",
+            ]
+            print(req.pipelines)
+        result = None
         for p in req.pipelines:
             try:
                 result = PipelineRunner(
@@ -93,7 +116,6 @@ class H2ogptConverseWithDocs(H2ogptConverse):
                         patientId=req.patientId,
                     ),
                 ).run
-                
 
                 if not self.chat.pipeline_exists(self.chat.tosha256(str(result))):
                     self.chat.h2ogpt_resources["pipelines"].append(
@@ -200,7 +222,7 @@ class H2ogptConverseWithDocs(H2ogptConverse):
             instruction=instruction,
             langchain_mode=self.langchain_mode,
             langchain_action=req.langchain_action,
-            stream_output=False,
+            stream_output=True,
             h2ogpt_key=self.h2ogpt_key,
             top_k_docs=req.top_k_docs,  # -1 entire doc
             document_subset="Relevant",
@@ -246,17 +268,39 @@ class H2ogptConverseWithDocs(H2ogptConverse):
     @exhandler
     async def converse_with_docs(self, req: ConverseWithDocsRequest) -> Any:
         document_choice = []
+        # req = DOAJArticleRequest(diseases=diseases)
+        # res = DOAJArticlesPipeline().article(
+        #     req=req,
+        #     filter=filter,
+        #     paginate=paginate,
+        # )
+        await self.build_pipelines(req)
 
-        if req.dois:
-            document_choice.append(await self.build_dois(req))
+        DOAJ_API_DISEASES: list = [
+            "Heart Disease",
+            "Diabetes",
+            "Obesity",
+            "Cancer",
+            "Chronic Respiratory Disease",
+        ]
 
-        if req.pipelines:
-            await self.build_pipelines(req)
+        for disease in DOAJ_API_DISEASES:  # noqa: F821
+            if (
+                disease.lower() in req.instruction.lower()
+                and "research" in req.instruction.lower()
+                and "paper" in req.instruction.lower()
+            ):
+                doi_req = DOAJArticleRequest(diseases=[disease])
+                result = DOAJArticlesPipeline().article(req=doi_req)
+                if not self.chat.pipeline_exists(self.chat.tosha256(str(result))):
+                    self.chat.h2ogpt_resources["pipelines"].append(
+                        {
+                            "sha256sum": self.chat.tosha256(str(result)),
+                            "content": result,
+                            "name": f"Medpub {disease}",
+                        }
+                    )
 
-        if req.urls:
-            document_choice.append(await self.build_urls(req))
-
-        if req.h2ogpt_path:
-            document_choice.append(*req.h2ogpt_path)
+        print(self.chat.h2ogpt_resources)
 
         return await self.instruction_send(req, document_choice)

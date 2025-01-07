@@ -1,17 +1,21 @@
 from typing import List, Optional, Dict
 from fastapi import File, Query, UploadFile
 from gradio_client import Client
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from db.models.common import FilterRequest
 from db.models.schema import ChatModel
-from db.models.gennet_types import PatientIdOptional, PatientIdRequired
+from db.models.gennet_types import PatientIdRequired
 from h2ogpt.app.core.config import settings
 
 
 class BaseConverseRequest(BaseModel):
     instruction: str = Query(default="Hello there!")
     chatId: Optional[str] = Query(default=None, description="chatId")
-    patientId: PatientIdOptional = Query(None, description="patientId")
+    patientId: Optional[str] = Query(None, description="patientId")
+
+    @validator("instruction", pre=True)
+    def ensure_physician_prompt(cls, value: str) -> str:
+        return f"<Instruction>\n{value}\n</Instruction>"
 
 
 class ConverseWithDocsRequest(BaseConverseRequest, FilterRequest):
@@ -21,7 +25,7 @@ class ConverseWithDocsRequest(BaseConverseRequest, FilterRequest):
     urls: List[str] = Field(default=[])
     h2ogpt_path: List[str] = Field(default=[])
     _langchain_action: str = "Query"
-    _top_k_docs: int = -1 if "prod" in settings.ENVIRONMENT else 5
+    _top_k_docs: int = -1  # if "prod" in settings.ENVIRONMENT else 5
 
     @property
     def langchain_action(self):

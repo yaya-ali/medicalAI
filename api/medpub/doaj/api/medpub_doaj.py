@@ -16,7 +16,8 @@ def publication(
     paginate: PaginateRequest = Depends(),
 ):
     """Get latest medical publication metadata given disease name(s)"""
-
+    if not diseases:
+        raise HTTPException(status_code=400, detail="Disease name(s) is required")
     try:
         req = DOAJArticleRequest(diseases=diseases)
         res = DOAJArticlesPipeline().article(

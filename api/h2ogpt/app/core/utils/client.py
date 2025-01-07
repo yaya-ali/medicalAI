@@ -1,4 +1,5 @@
 from typing import Any
+from uuid import uuid4
 
 from httpx import HTTPStatusError
 from h2ogpt.app.schemas.response import APIExceptionResponse
@@ -109,7 +110,7 @@ class H2ogptAuth:
         # FIX: no need to use uuid, delete_sources will clear clipboard
 
         res = self.client.predict(  # type: ignore
-            yaml.dump(content),
+            yaml.dump(content) + uuid4().__str__()[:8],
             self.langchain_mode,
             self.chunk,
             self.chunk_size,
@@ -118,7 +119,8 @@ class H2ogptAuth:
             self.h2ogpt_key,
             api_name="/add_text",
         )
-        return f"user_paste/{res[4]}"  # constant index for user_paste/<ID>
+        result = f"user_paste/{res[4]}"  # constant index for user_paste/<ID>
+        return result
 
     @exhandler
     def delete_sources(self, source: str):
@@ -146,7 +148,6 @@ class H2ogptAuth:
                 if new_text:
                     yield new_text
                     text_old = text
-                await asyncio.sleep(0.5)
 
         # handle case if never got streaming response and already done
         res_final = job.outputs()
